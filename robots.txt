@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cambyte.co.uk/sitemap.xml
