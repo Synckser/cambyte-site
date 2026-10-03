@@ -36,7 +36,8 @@ Wix DNS (authoritative, ns2/ns3.wixdns.net) now has:
 - CNAME bob → bob-ai-jehc.onrender.com (untouched, Render app)
 - MX/TXT: still Zoho (dead) — pending swap, see Email.
 GitHub Pages: enabled via API, custom domain cambyte.co.uk, status built. HTTPS: cert provisioning; a watcher script sets `https_enforced=true` once issued. Verify: `gh api repos/Synckser/cambyte-site/pages --jq '{status,https_enforced,cert:.https_certificate.state}'`.
-Note `_headers` file is Cloudflare-only; GitHub Pages ignores it (harmless).
+Note `_headers` file is Cloudflare-only; GitHub Pages ignores it (harmless). `.nojekyll` present so Pages serves files verbatim. Setting the custom domain via API makes GitHub commit `CNAME` to the repo — `git pull --rebase` before pushing if you see a rejected push.
+Testing tip: a Mac may cache the old Wix IP (34.58.143.4, nginx: 200 on `/`, 404 elsewhere) for up to 1 h; test with `curl --resolve cambyte.co.uk:80:185.199.108.153 http://cambyte.co.uk/<path>`.
 
 ## Email — TODO (Roberto clicks; Claude is permission-blocked on MX edits)
 Wix → Manage DNS Records → MX section → **Manage mailbox** → provider "Other":
@@ -75,6 +76,7 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
+- 2026-10-03 01:45: all paths verified 200 via GitHub IP; .nojekyll added; HTTPS cert still provisioning (watcher running).
 - 2026-10-03 01:30: switched to GitHub Pages + Wix DNS. A/CNAME records set in Wix (Claude via Chrome; MX edits blocked by permission classifier). cambyte.co.uk serving over HTTP; HTTPS pending cert.
 - 2026-10-02: site designed + built, repo created, pushed.
 - 2026-10-03: Cloudflare zone, Pages project, DNS CNAMEs, Zoho removed, Email Routing rule. Discovered Wix NS lock. Handover written.
