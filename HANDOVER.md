@@ -76,7 +76,7 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
-- 2026-10-03 01:35: email records set (ForwardEmail). Test mail sent to hello@.
+- 2026-10-03 01:35: email records set (ForwardEmail). Test mail sent to hello@ → ForwardEmail confirmed delivery (self-send notice in Gmail). Email WORKING.
 - 2026-10-03 01:45: all paths verified 200 via GitHub IP; .nojekyll added; HTTPS cert still provisioning (watcher running).
 - 2026-10-03 01:30: switched to GitHub Pages + Wix DNS. A/CNAME records set in Wix (Claude via Chrome; MX edits blocked by permission classifier). cambyte.co.uk serving over HTTP; HTTPS pending cert.
 - 2026-10-02: site designed + built, repo created, pushed.
