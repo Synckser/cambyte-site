@@ -13,7 +13,7 @@ Site = cambyte.co.uk. Read this file first before touching anything.
 | Cloudflare account | Bob.pires@hotmail.co.uk, account id `0df8ea9a20396b69f6bf6eb56162293f` |
 | Cloudflare zone | cambyte.co.uk — PENDING, **not in use**. Wix forbids NS change and Cloudflare Registrar needs NS first → parked. |
 | Domain registrar | **Wix**, account bob.pires@hotmail.co.uk (NOT the Apple-relay Wix login). Renews 3 Apr 2027. |
-| Contact email | hello@cambyte.co.uk — **NOT YET WORKING**. Plan: ForwardEmail.net (free, DNS-only) via Wix MX/TXT — see Email section. |
+| Contact email | hello@cambyte.co.uk → ForwardEmail.net (free, DNS-only) → piresbobrob@gmail.com. MX mx1/mx2.forwardemail.net (50/60), TXT `forward-email=hello:piresbobrob@gmail.com`, SPF `v=spf1 include:spf.forwardemail.net ~all`. Set 2026-10-03 by Roberto. |
 
 ## Site facts
 - Static HTML/CSS, no build. Files: `index.html`, `privacy/index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `_headers`, `assets/`.
@@ -34,12 +34,12 @@ Wix DNS (authoritative, ns2/ns3.wixdns.net) now has:
 - A @ → 185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153 (GitHub Pages)
 - CNAME www → synckser.github.io (GitHub redirects www → apex)
 - CNAME bob → bob-ai-jehc.onrender.com (untouched, Render app)
-- MX/TXT: still Zoho (dead) — pending swap, see Email.
+- MX mx1.forwardemail.net 50 / mx2.forwardemail.net 60; TXT forward-email + SPF (ForwardEmail). Zoho verification + DKIM TXT left (harmless).
 GitHub Pages: enabled via API, custom domain cambyte.co.uk, status built. HTTPS: cert provisioning; a watcher script sets `https_enforced=true` once issued. Verify: `gh api repos/Synckser/cambyte-site/pages --jq '{status,https_enforced,cert:.https_certificate.state}'`.
 Note `_headers` file is Cloudflare-only; GitHub Pages ignores it (harmless). `.nojekyll` present so Pages serves files verbatim. Setting the custom domain via API makes GitHub commit `CNAME` to the repo — `git pull --rebase` before pushing if you see a rejected push.
 Testing tip: a Mac may cache the old Wix IP (34.58.143.4, nginx: 200 on `/`, 404 elsewhere) for up to 1 h; test with `curl --resolve cambyte.co.uk:80:185.199.108.153 http://cambyte.co.uk/<path>`.
 
-## Email — TODO (Roberto clicks; Claude is permission-blocked on MX edits)
+## Email — DONE 2026-10-03 (Roberto clicked; Claude is permission-blocked on MX/TXT edits)
 Wix → Manage DNS Records → MX section → **Manage mailbox** → provider "Other":
 - Replace rows with: `mx1.forwardemail.net` priority 10, `mx2.forwardemail.net` priority 20 (delete mx3 row). Save.
 TXT section → delete `v=spf1 include:zohomail.eu ~all` + zoho-verification + zmail._domainkey; add two TXT at host `cambyte.co.uk`:
@@ -76,6 +76,7 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
+- 2026-10-03 01:35: email records set (ForwardEmail). Test mail sent to hello@.
 - 2026-10-03 01:45: all paths verified 200 via GitHub IP; .nojekyll added; HTTPS cert still provisioning (watcher running).
 - 2026-10-03 01:30: switched to GitHub Pages + Wix DNS. A/CNAME records set in Wix (Claude via Chrome; MX edits blocked by permission classifier). cambyte.co.uk serving over HTTP; HTTPS pending cert.
 - 2026-10-02: site designed + built, repo created, pushed.
