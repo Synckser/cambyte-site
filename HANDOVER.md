@@ -1,4 +1,4 @@
-# CAMBYTE — Website handover (last updated 2026-10-03)
+# CAMBYTE — Website handover (last updated 2026-10-03, 01:30)
 
 Cambyte = Roberto's IT company (sole trader; app development, IT support, AI consulting; Cambridge UK).
 Site = cambyte.co.uk. Read this file first before touching anything.
@@ -8,11 +8,12 @@ Site = cambyte.co.uk. Read this file first before touching anything.
 |---|---|
 | Site source | `~/Desktop/cambyte-site` → GitHub `Synckser/cambyte-site` (branch `main`) |
 | Design spec | `cambyte-site/docs/2026-10-02-cambyte-site-design.md` |
-| Live preview | https://cambyte-site.pages.dev (Cloudflare Pages, auto-deploys on push) |
+| **LIVE SITE** | **https://cambyte.co.uk** — GitHub Pages (repo Settings → Pages, branch main, root, CNAME file). Auto-deploys on push. |
+| Spare mirror | https://cambyte-site.pages.dev (Cloudflare Pages, also auto-deploys) |
 | Cloudflare account | Bob.pires@hotmail.co.uk, account id `0df8ea9a20396b69f6bf6eb56162293f` |
-| Cloudflare zone | cambyte.co.uk — **PENDING** (nameservers not yet Cloudflare) |
+| Cloudflare zone | cambyte.co.uk — PENDING, **not in use**. Wix forbids NS change and Cloudflare Registrar needs NS first → parked. |
 | Domain registrar | **Wix**, account bob.pires@hotmail.co.uk (NOT the Apple-relay Wix login). Renews 3 Apr 2027. |
-| Contact email | hello@cambyte.co.uk → Email Routing rule → piresbobrob@gmail.com (rule exists, MX not yet active) |
+| Contact email | hello@cambyte.co.uk — **NOT YET WORKING**. Plan: ForwardEmail.net (free, DNS-only) via Wix MX/TXT — see Email section. |
 
 ## Site facts
 - Static HTML/CSS, no build. Files: `index.html`, `privacy/index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `_headers`, `assets/`.
@@ -28,7 +29,24 @@ Site = cambyte.co.uk. Read this file first before touching anything.
 - Email Routing: rule `hello@cambyte.co.uk → piresbobrob@gmail.com` ACTIVE; destination already verified. MX/SPF/DKIM records cannot be added until zone is active.
 - Assigned nameservers: `harmony.ns.cloudflare.com`, `jarred.ns.cloudflare.com`.
 
-## THE BLOCKER — Wix forbids nameserver changes
+## CURRENT HOSTING (decided 2026-10-03): GitHub Pages + Wix DNS
+Wix DNS (authoritative, ns2/ns3.wixdns.net) now has:
+- A @ → 185.199.108.153 / 185.199.109.153 / 185.199.110.153 / 185.199.111.153 (GitHub Pages)
+- CNAME www → synckser.github.io (GitHub redirects www → apex)
+- CNAME bob → bob-ai-jehc.onrender.com (untouched, Render app)
+- MX/TXT: still Zoho (dead) — pending swap, see Email.
+GitHub Pages: enabled via API, custom domain cambyte.co.uk, status built. HTTPS: cert provisioning; a watcher script sets `https_enforced=true` once issued. Verify: `gh api repos/Synckser/cambyte-site/pages --jq '{status,https_enforced,cert:.https_certificate.state}'`.
+Note `_headers` file is Cloudflare-only; GitHub Pages ignores it (harmless).
+
+## Email — TODO (Roberto clicks; Claude is permission-blocked on MX edits)
+Wix → Manage DNS Records → MX section → **Manage mailbox** → provider "Other":
+- Replace rows with: `mx1.forwardemail.net` priority 10, `mx2.forwardemail.net` priority 20 (delete mx3 row). Save.
+TXT section → delete `v=spf1 include:zohomail.eu ~all` + zoho-verification + zmail._domainkey; add two TXT at host `cambyte.co.uk`:
+- `forward-email=hello:piresbobrob@gmail.com`
+- `v=spf1 include:spf.forwardemail.net ~all`
+Then test: send mail to hello@cambyte.co.uk → lands in Gmail. (ForwardEmail free tier needs no account; alias defined purely in DNS.)
+
+## HISTORY — Wix forbids nameserver changes (why Cloudflare is parked)
 Wix does not let you edit nameservers on Wix-registered domains (no menu option exists). Only way onto Cloudflare DNS = **transfer the registration to Cloudflare Registrar**. .uk transfers: free, no extra year, uses IPS tag (no auth code), completes within ~24 h.
 
 ### Roberto must do (Claude is permission-blocked on domain/DNS clicks in both dashboards)
@@ -57,5 +75,6 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
+- 2026-10-03 01:30: switched to GitHub Pages + Wix DNS. A/CNAME records set in Wix (Claude via Chrome; MX edits blocked by permission classifier). cambyte.co.uk serving over HTTP; HTTPS pending cert.
 - 2026-10-02: site designed + built, repo created, pushed.
 - 2026-10-03: Cloudflare zone, Pages project, DNS CNAMEs, Zoho removed, Email Routing rule. Discovered Wix NS lock. Handover written.
