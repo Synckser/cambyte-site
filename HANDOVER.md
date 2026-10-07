@@ -1,16 +1,13 @@
-# CAMBYTE — Website handover (last updated 2026-10-08, 00:05)
+# CAMBYTE — Website handover (last updated 2026-10-08, 00:35)
 
 Cambyte = Roberto's company (sole trader; **app development + AI consulting ONLY**; Cambridge UK). IT support/setup was DROPPED from the business and the site on 2026-10-07 — do not add it back.
 
-## STATUS 2026-10-08 00:05 — HTTPS still pending ("Not secure" in browser)
-- Root cause: GitHub Pages has not issued the Let's Encrypt cert for cambyte.co.uk yet. HTTPS currently serves the `*.github.io` wildcard → browser shows "Not secure" / cert mismatch. HTTP works (200).
-- DNS is CORRECT (checked via `gh api repos/Synckser/cambyte-site/pages/health`: apex A → GitHub IPs, www CNAME → synckser.github.io, `is_valid: true`, `is_https_eligible: true`, `caa_error: null`, no AAAA). Nothing to fix in Wix DNS.
-- Cert state `authorization_created` since the custom domain was removed + re-added on 2026-10-07 23:41 (commits "Delete CNAME"/"Create CNAME"). Before that it had sat in the same state since 3 Oct.
-- Watcher: LaunchAgent `com.roberto.cambyte-https-watch` runs `~/.claude-cred-backups/cambyte-https-watch.sh` every 2 min → when cert state becomes `approved`, it PUTs `https_enforced=true`, confirms `https://cambyte.co.uk` = 200, sends a macOS notification and unloads itself. Log: `~/.claude-cred-backups/cambyte-https-watch.log`.
-- Ruled out 2026-10-08 00:20: DNSSEC (no DS, 8.8.8.8/1.1.1.1 resolve fine), Let's Encrypt preflight letsdebug.net http-01 `ok:true` for apex + www, no other repo claims the domain, setup identical to working `Synckser/drawandlearn-site` (A records → GitHub IPs, not proxied, cert `approved`). Stall is inside GitHub's pipeline; only time or re-add/Support fixes it.
-- Check by hand: `gh api repos/Synckser/cambyte-site/pages --jq '{https_enforced,cert:.https_certificate.state}'` and `curl -sI https://cambyte.co.uk | head -1`.
-- If still `authorization_created` after 24 h (i.e. after 2026-10-08 ~23:40): remove + re-add the domain once more (`gh api -X DELETE repos/Synckser/cambyte-site/pages` is NOT it — use `gh api -X PUT repos/Synckser/cambyte-site/pages -f cname=` then `-f cname=cambyte.co.uk`, or Settings → Pages in the browser), then if that fails too, open a GitHub Support ticket ("Pages custom domain certificate stuck in authorization_created"). Fallback host = Cloudflare Pages mirror (needs the Wix→Cloudflare domain transfer below).
-Site = cambyte.co.uk. Read this file first before touching anything.
+## HTTPS — DONE 2026-10-08 00:31
+- Let's Encrypt cert issued by GitHub Pages at 00:30 (CN cambyte.co.uk, SAN www.cambyte.co.uk, valid to 2027-01-05; GitHub auto-renews). `https_enforced=true` set by the watcher at 00:30:53. `https://cambyte.co.uk` 200, `http://` → 301 → https, `https://www.` → 301 → apex.
+- Timeline: cert stuck at `authorization_created` from 3 Oct; custom domain removed + re-added 7 Oct 23:41 (other session); approved 8 Oct 00:30 (~49 min later). DNS was never the problem.
+- Watcher LaunchAgent `com.roberto.cambyte-https-watch` did its job and unloaded itself; plist deleted. Script kept at `~/.claude-cred-backups/cambyte-https-watch.sh` (log `.log`) in case this ever recurs — re-create the plist (StartInterval 120, RunAtLoad) and bootstrap it.
+- Check any time: `gh api repos/Synckser/cambyte-site/pages --jq '{https_enforced,cert:.https_certificate.state}'`; DNS health: `gh api repos/Synckser/cambyte-site/pages/health` (first call may return `{}` = 202 in progress, retry).
+- If HTTPS ever breaks again: remove + re-add the custom domain (Settings → Pages, or `gh api -X PUT repos/Synckser/cambyte-site/pages -f cname=` then `-f cname=cambyte.co.uk`), wait up to 1 h. Ruled-out list from 8 Oct: DNSSEC, CAA, AAAA, letsdebug.net preflight, domain conflict with other repos.
 
 ## Where things are
 | Thing | Location |
@@ -89,6 +86,7 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
+- 2026-10-08 00:31: HTTPS LIVE. Cert approved, enforcement on, redirects verified. Watcher unloaded, plist removed.
 - 2026-10-08 00:05: IT support removed from site (commit 393876e, live). OG image regenerated. HTTPS cert still `authorization_created`; DNS health check all green; watcher LaunchAgent installed. Handover + memory updated.
 - 2026-10-07 23:41–23:47 (other session): custom domain removed + re-added to retrigger cert; `/apps/` landing page with pricing added (commit f3ae69f).
 - 2026-10-03 01:35: email records set (ForwardEmail). Test mail sent to hello@ → ForwardEmail confirmed delivery (self-send notice in Gmail). Email WORKING.
