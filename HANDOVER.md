@@ -1,6 +1,14 @@
-# CAMBYTE — Website handover (last updated 2026-10-03, 01:30)
+# CAMBYTE — Website handover (last updated 2026-10-08, 00:05)
 
-Cambyte = Roberto's IT company (sole trader; app development, IT support, AI consulting; Cambridge UK).
+Cambyte = Roberto's company (sole trader; **app development + AI consulting ONLY**; Cambridge UK). IT support/setup was DROPPED from the business and the site on 2026-10-07 — do not add it back.
+
+## STATUS 2026-10-08 00:05 — HTTPS still pending ("Not secure" in browser)
+- Root cause: GitHub Pages has not issued the Let's Encrypt cert for cambyte.co.uk yet. HTTPS currently serves the `*.github.io` wildcard → browser shows "Not secure" / cert mismatch. HTTP works (200).
+- DNS is CORRECT (checked via `gh api repos/Synckser/cambyte-site/pages/health`: apex A → GitHub IPs, www CNAME → synckser.github.io, `is_valid: true`, `is_https_eligible: true`, `caa_error: null`, no AAAA). Nothing to fix in Wix DNS.
+- Cert state `authorization_created` since the custom domain was removed + re-added on 2026-10-07 23:41 (commits "Delete CNAME"/"Create CNAME"). Before that it had sat in the same state since 3 Oct.
+- Watcher: LaunchAgent `com.roberto.cambyte-https-watch` runs `~/.claude-cred-backups/cambyte-https-watch.sh` every 2 min → when cert state becomes `approved`, it PUTs `https_enforced=true`, confirms `https://cambyte.co.uk` = 200, sends a macOS notification and unloads itself. Log: `~/.claude-cred-backups/cambyte-https-watch.log`.
+- Check by hand: `gh api repos/Synckser/cambyte-site/pages --jq '{https_enforced,cert:.https_certificate.state}'` and `curl -sI https://cambyte.co.uk | head -1`.
+- If still `authorization_created` after 24 h (i.e. after 2026-10-08 ~23:40): remove + re-add the domain once more (`gh api -X DELETE repos/Synckser/cambyte-site/pages` is NOT it — use `gh api -X PUT repos/Synckser/cambyte-site/pages -f cname=` then `-f cname=cambyte.co.uk`, or Settings → Pages in the browser), then if that fails too, open a GitHub Support ticket ("Pages custom domain certificate stuck in authorization_created"). Fallback host = Cloudflare Pages mirror (needs the Wix→Cloudflare domain transfer below).
 Site = cambyte.co.uk. Read this file first before touching anything.
 
 ## Where things are
@@ -18,7 +26,9 @@ Site = cambyte.co.uk. Read this file first before touching anything.
 ## Site facts
 - **`/apps/` (added 2026-10-07)**: standalone app-development landing page — pricing (Starter £1,500 / Business £3,500 / Custom £7,500, add-ons, Care plans £49/£149/£299), Draw & Learn try-it block with QR (`assets/img/dl-qr.svg`, App Store link `?ct=cambyte-apps`), FAQ. Own header, no main nav; page-only CSS inline in `apps/index.html`. Homepage App card links to it. Change prices there only.
 - HTTPS cert was stuck at `authorization_created` since 3 Oct; custom domain removed + re-added via API on 2026-10-07 to retrigger. Check: `gh api repos/Synckser/cambyte-site/pages --jq '{https_enforced,cert:.https_certificate.state}'`; once `approved`, set `https_enforced=true`.
-- Static HTML/CSS, no build. Files: `index.html`, `privacy/index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `_headers`, `assets/`.
+- Static HTML/CSS, no build. Files: `index.html`, `apps/index.html` (app-development landing + pricing, added 2026-10-07), `privacy/index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `_headers`, `assets/`.
+- Services section = 2 cards (App development, AI consulting). All "IT support / repair / laptop / network" copy removed 2026-10-07. Hero trust badge now "Google Cybersecurity certified"; About creds list only the Cybersecurity certificate (the Google IT Support certificate line was dropped on purpose — Roberto can re-add as a plain qualification if he wants).
+- OG image `assets/img/og.png` regenerated 2026-10-07 from `docs/og-source.html` (open in headless Chrome at 1200×630: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --window-size=1200,630 --screenshot=og.png docs/og-source.html`).
 - Edit → commit → push → live in ~1 min. Preview locally: `python3 -m http.server 8791`.
 - Palette teal `#0E7C66`, ink `#1A2421`; fonts Archivo / Public Sans / IBM Plex Mono. Dark mode supported.
 - Footer says sole trader. If Cambyte becomes Ltd: add company number + registered address to footer + privacy page (UK law).
@@ -78,6 +88,8 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
+- 2026-10-08 00:05: IT support removed from site (commit 393876e, live). OG image regenerated. HTTPS cert still `authorization_created`; DNS health check all green; watcher LaunchAgent installed. Handover + memory updated.
+- 2026-10-07 23:41–23:47 (other session): custom domain removed + re-added to retrigger cert; `/apps/` landing page with pricing added (commit f3ae69f).
 - 2026-10-03 01:35: email records set (ForwardEmail). Test mail sent to hello@ → ForwardEmail confirmed delivery (self-send notice in Gmail). Email WORKING.
 - 2026-10-03 01:45: all paths verified 200 via GitHub IP; .nojekyll added; HTTPS cert still provisioning (watcher running).
 - 2026-10-03 01:30: switched to GitHub Pages + Wix DNS. A/CNAME records set in Wix (Claude via Chrome; MX edits blocked by permission classifier). cambyte.co.uk serving over HTTP; HTTPS pending cert.
