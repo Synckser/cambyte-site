@@ -1,4 +1,4 @@
-# CAMBYTE — Website handover (last updated 2026-10-08, 00:35)
+# CAMBYTE — Website handover (last updated 2026-10-08, 00:42)
 
 Cambyte = Roberto's company (sole trader; **app development + AI consulting ONLY**; Cambridge UK). IT support/setup was DROPPED from the business and the site on 2026-10-07 — do not add it back.
 
@@ -25,6 +25,7 @@ Cambyte = Roberto's company (sole trader; **app development + AI consulting ONLY
 - **`/apps/` (added 2026-10-07)**: standalone app-development landing page — pricing (Starter £1,500 / Business £3,500 / Custom £7,500, add-ons, Care plans £49/£149/£299), Draw & Learn try-it block with QR (`assets/img/dl-qr.svg`, App Store link `?ct=cambyte-apps`), FAQ. Own header, no main nav; page-only CSS inline in `apps/index.html`. Homepage App card links to it. Change prices there only.
 - HTTPS cert was stuck at `authorization_created` since 3 Oct; custom domain removed + re-added via API on 2026-10-07 to retrigger. Check: `gh api repos/Synckser/cambyte-site/pages --jq '{https_enforced,cert:.https_certificate.state}'`; once `approved`, set `https_enforced=true`.
 - Static HTML/CSS, no build. Files: `index.html`, `apps/index.html` (app-development landing + pricing, added 2026-10-07), `privacy/index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `_headers`, `assets/`.
+- Hero has two big teal buttons (2026-10-08): **App Development** → `/apps/`, **AI Consulting** → `#ai-consulting` (id on the AI card). No dedicated AI page yet — natural next step is an `/ai/` landing page like `/apps/`, then repoint the button. CSS block "Hero: two big service buttons" in `assets/style.css`.
 - Services section = 2 cards (App development, AI consulting). All "IT support / repair / laptop / network" copy removed 2026-10-07. Hero trust badge now "Google Cybersecurity certified"; About creds list only the Cybersecurity certificate (the Google IT Support certificate line was dropped on purpose — Roberto can re-add as a plain qualification if he wants).
 - OG image `assets/img/og.png` regenerated 2026-10-07 from `docs/og-source.html` (open in headless Chrome at 1200×630: `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --window-size=1200,630 --screenshot=og.png docs/og-source.html`).
 - Edit → commit → push → live in ~1 min. Preview locally: `python3 -m http.server 8791`.
@@ -86,6 +87,7 @@ Wix does not let you edit nameservers on Wix-registered domains (no menu option 
 - OG image already at `/assets/img/og.png`.
 
 ## Log
+- 2026-10-08 00:42: hero service buttons live (commit 3f69533).
 - 2026-10-08 00:31: HTTPS LIVE. Cert approved, enforcement on, redirects verified. Watcher unloaded, plist removed.
 - 2026-10-08 00:05: IT support removed from site (commit 393876e, live). OG image regenerated. HTTPS cert still `authorization_created`; DNS health check all green; watcher LaunchAgent installed. Handover + memory updated.
 - 2026-10-07 23:41–23:47 (other session): custom domain removed + re-added to retrigger cert; `/apps/` landing page with pricing added (commit f3ae69f).
