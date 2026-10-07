@@ -61,6 +61,24 @@ h1 em{font-style:normal;color:var(--teal)}
 .btn-primary:hover{background:var(--teal-deep)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn-ghost:hover{border-color:var(--teal);color:var(--teal)}
+/* Hero: two big service buttons */
+.hero-ctas{display:grid;gap:14px;margin-top:32px;max-width:760px}
+@media(min-width:720px){.hero-ctas{grid-template-columns:1fr 1fr;gap:16px}}
+.hero-cta{display:flex;align-items:center;gap:16px;min-height:88px;padding:18px 20px;border-radius:16px;background:var(--teal);color:#fff;text-decoration:none;box-shadow:0 6px 20px rgba(14,124,102,.22);transition:background .15s,transform .15s,box-shadow .15s}
+.hero-cta:hover{background:var(--teal-deep);transform:translateY(-2px);box-shadow:0 10px 26px rgba(14,124,102,.3)}
+.hero-cta:active{transform:translateY(0)}
+.hero-cta-icon{flex:none;width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.16);display:grid;place-items:center}
+.hero-cta-icon svg{width:26px;height:26px}
+.hero-cta-text{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.hero-cta-text b{font-family:var(--font-head);font-weight:800;font-size:clamp(19px,2.2vw,23px);line-height:1.15;letter-spacing:-.01em}
+.hero-cta-text small{font-family:var(--font-mono);font-size:12px;opacity:.88;line-height:1.35}
+.hero-cta-arrow{flex:none;width:24px;height:24px;transition:transform .15s}
+.hero-cta:hover .hero-cta-arrow{transform:translateX(4px)}
+.hero-or{margin-top:18px;font-size:15px;color:var(--ink-soft)}
+.hero-or a{color:var(--teal);font-weight:600}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero-cta{color:#0B1612;box-shadow:0 6px 20px rgba(0,0,0,.35)}:root:not([data-theme="light"]) .hero-cta-icon{background:rgba(0,0,0,.14)}}
+:root[data-theme="dark"] .hero-cta{color:#0B1612;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+:root[data-theme="dark"] .hero-cta-icon{background:rgba(0,0,0,.14)}
 .trust{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px 22px;font-family:var(--font-mono);font-size:12.5px;color:var(--ink-soft)}
 .trust li{list-style:none;display:flex;align-items:center;gap:8px}
 .trust li::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--teal)}
