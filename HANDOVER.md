@@ -6,7 +6,7 @@ Site = cambyte.co.uk. Read this file first before touching anything.
 ## Where things are
 | Thing | Location |
 |---|---|
-| Site source | `~/Desktop/cambyte-site` → GitHub `Synckser/cambyte-site` (branch `main`) |
+| Site source | `~/Desktop/DEVELOPER FOLDER/cambyte-site` → GitHub `Synckser/cambyte-site` (branch `main`) |
 | Design spec | `cambyte-site/docs/2026-10-02-cambyte-site-design.md` |
 | **LIVE SITE** | **https://cambyte.co.uk** — GitHub Pages (repo Settings → Pages, branch main, root, CNAME file). Auto-deploys on push. |
 | Spare mirror | https://cambyte-site.pages.dev (Cloudflare Pages, also auto-deploys) |
@@ -16,6 +16,8 @@ Site = cambyte.co.uk. Read this file first before touching anything.
 | Contact email | hello@cambyte.co.uk → ForwardEmail.net (free, DNS-only) → piresbobrob@gmail.com. MX mx1/mx2.forwardemail.net (50/60), TXT `forward-email=hello:piresbobrob@gmail.com`, SPF `v=spf1 include:spf.forwardemail.net ~all`. Set 2026-10-03 by Roberto. |
 
 ## Site facts
+- **`/apps/` (added 2026-10-07)**: standalone app-development landing page — pricing (Starter £1,500 / Business £3,500 / Custom £7,500, add-ons, Care plans £49/£149/£299), Draw & Learn try-it block with QR (`assets/img/dl-qr.svg`, App Store link `?ct=cambyte-apps`), FAQ. Own header, no main nav; page-only CSS inline in `apps/index.html`. Homepage App card links to it. Change prices there only.
+- HTTPS cert was stuck at `authorization_created` since 3 Oct; custom domain removed + re-added via API on 2026-10-07 to retrigger. Check: `gh api repos/Synckser/cambyte-site/pages --jq '{https_enforced,cert:.https_certificate.state}'`; once `approved`, set `https_enforced=true`.
 - Static HTML/CSS, no build. Files: `index.html`, `privacy/index.html`, `404.html`, `robots.txt`, `sitemap.xml`, `_headers`, `assets/`.
 - Edit → commit → push → live in ~1 min. Preview locally: `python3 -m http.server 8791`.
 - Palette teal `#0E7C66`, ink `#1A2421`; fonts Archivo / Public Sans / IBM Plex Mono. Dark mode supported.

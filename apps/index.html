@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App development for small businesses, Cambridge — from £1,500 | Cambyte</title>
+<meta name="description" content="Get your own iPhone and Android app built in Cambridge, from £1,500, live on the App Store in two to four weeks. Fixed quote before any work starts, one-off payment or a monthly care plan. Try a finished app for free first.">
+<link rel="canonical" href="https://cambyte.co.uk/apps/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Your business app, from £1,500 — Cambyte, Cambridge">
+<meta property="og:description" content="Small-business apps built in Cambridge. Fixed quotes, App Store submission included, one-off or monthly care. Download the app I already shipped and try it free.">
+<meta property="og:url" content="https://cambyte.co.uk/apps/">
+<meta property="og:image" content="https://cambyte.co.uk/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0E7C66">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+/* page-only styles; everything shared lives in /assets/style.css */
+.top-min .wrap{height:64px}
+.top-min .head-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:9px;background:var(--teal);color:#fff;text-decoration:none;font-family:var(--font-head);font-weight:700;font-size:15px}
+.top-min .head-cta:hover{background:var(--teal-deep)}
+.top-min .back{display:none;color:var(--ink-soft);text-decoration:none;font-size:14px;margin-right:14px}
+.top-min .back:hover{color:var(--teal)}
+@media(min-width:640px){.top-min .back{display:inline}}
+.hero .price-line{margin-top:18px;font-family:var(--font-mono);font-size:14px;color:var(--teal)}
+
+.proof{display:grid;gap:24px;align-items:center}
+@media(min-width:860px){.proof{grid-template-columns:1.1fr .9fr;gap:40px}}
+.proof p{color:var(--ink-soft);font-size:16px;margin-top:12px}
+.qr-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:22px}
+.qr{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;width:130px;height:130px;flex:none}
+.qr img{width:100%;height:100%}
+.qr-row .badge{margin:0}
+.qr-row small{display:block;font-family:var(--font-mono);font-size:12px;color:var(--ink-faint);margin-top:6px}
+.shots{background:linear-gradient(160deg,var(--teal-tint),var(--surface-2));border:1px solid var(--line);border-radius:20px;padding:24px;display:flex;align-items:flex-end;justify-content:center;gap:14px;min-height:260px}
+.shots img{border-radius:16px;box-shadow:0 14px 40px rgba(0,0,0,.18)}
+.shots .phone{width:min(34%,170px)}
+.shots .tablet{width:min(60%,320px)}
+
+.ideas{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:560px){.ideas{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){.ideas{grid-template-columns:repeat(3,1fr)}}
+.idea{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 18px 18px;display:flex;gap:14px;align-items:flex-start;box-shadow:var(--shadow)}
+.idea .icon{width:40px;height:40px;border-radius:10px;flex:none}
+.idea .icon svg{width:21px;height:21px}
+.idea h3{font-family:var(--font-head);font-weight:700;font-size:16.5px;letter-spacing:-.01em}
+.idea p{color:var(--ink-soft);font-size:14px;margin-top:3px}
+.ideas-note{margin-top:18px;color:var(--ink-soft);font-size:15px}
+
+.tiers{display:grid;gap:16px}
+@media(min-width:800px){.tiers{grid-template-columns:repeat(3,1fr);align-items:stretch}}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative}
+.tier.pop{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-tint),var(--shadow)}
+.tier .pop-tag{position:absolute;top:-12px;left:22px}
+.tier h3{font-family:var(--font-head);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.tier .for{color:var(--ink-soft);font-size:14.5px;margin-top:4px;min-height:2.6em}
+.tier .price{margin:18px 0 2px;font-family:var(--font-head);font-weight:900;font-size:38px;letter-spacing:-.03em;line-height:1}
+.tier .price small{font-family:var(--font-mono);font-weight:400;font-size:13px;letter-spacing:.04em;color:var(--ink-faint);display:block;margin-bottom:4px}
+.tier .time{font-family:var(--font-mono);font-size:12.5px;color:var(--teal);margin-bottom:16px}
+.tier ul{list-style:none;display:grid;gap:8px;margin:0 0 22px;padding:0}
+.tier li{font-size:14.5px;display:flex;gap:10px;align-items:flex-start;color:var(--ink)}
+.tier li::before{content:"→";color:var(--teal);font-family:var(--font-mono);flex:none}
+.tier .btn{margin-top:auto;justify-content:center}
+.fine{margin-top:22px;color:var(--ink-soft);font-size:15px;max-width:70ch}
+.addons{margin-top:28px}
+.addons h3{font-family:var(--font-head);font-weight:700;font-size:18px;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px;display:flex;gap:8px;align-items:center;min-height:40px}
+.chips b{font-family:var(--font-mono);font-weight:500;color:var(--teal);font-size:13px}
+
+.pay{display:grid;gap:16px}
+@media(min-width:800px){.pay{grid-template-columns:1fr 1fr}}
+.pay .card h3{margin-top:0}
+.pay .card .lead{font-family:var(--font-mono);font-size:12.5px;color:var(--teal);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.care{margin-top:24px;overflow-x:auto}
+.care table{width:100%;border-collapse:collapse;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;min-width:560px}
+.care th,.care td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);font-size:14.5px;vertical-align:top}
+.care th{font-family:var(--font-head);font-weight:700;font-size:15px;background:var(--surface-2)}
+.care td:first-child{font-family:var(--font-head);font-weight:700;white-space:nowrap}
+.care td .m{display:block;font-family:var(--font-mono);font-weight:400;font-size:13px;color:var(--teal)}
+.care tr:last-child td{border-bottom:0}
+.terms{margin-top:18px;display:grid;gap:8px;list-style:none}
+.terms li{display:flex;gap:10px;align-items:flex-start;font-size:15px;color:var(--ink-soft)}
+.terms li svg{width:20px;height:20px;flex:none;color:var(--teal);margin-top:2px}
+
+.steps-4{display:grid;gap:20px}
+@media(min-width:720px){.steps-4{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.steps-4{grid-template-columns:repeat(4,1fr)}}
+
+.faq{max-width:760px;display:grid;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 20px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 0;font-family:var(--font-head);font-weight:700;font-size:16.5px;display:flex;justify-content:space-between;gap:14px;align-items:center;min-height:44px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--font-mono);color:var(--teal);font-size:20px;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--ink-soft);font-size:15.5px;padding:0 0 18px}
+
+.contact .sub{opacity:.75;font-size:14.5px;margin-top:18px}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Mobile app development",
+  "name": "Small-business app development",
+  "provider": {"@type": "ProfessionalService", "name": "Cambyte", "url": "https://cambyte.co.uk/", "email": "hello@cambyte.co.uk",
+    "address": {"@type": "PostalAddress", "addressLocality": "Cambridge", "addressCountry": "GB"}},
+  "areaServed": "Cambridge, UK",
+  "url": "https://cambyte.co.uk/apps/",
+  "offers": [
+    {"@type": "Offer", "name": "Starter app", "price": "1500", "priceCurrency": "GBP", "description": "iPhone app, up to 6 screens, App Store submission included. Starting price."},
+    {"@type": "Offer", "name": "Business app", "price": "3500", "priceCurrency": "GBP", "description": "iPhone app, up to 12 screens, accounts, bookings or orders, notifications. Starting price."},
+    {"@type": "Offer", "name": "Custom or AI app", "price": "7500", "priceCurrency": "GBP", "description": "Payments, integrations, AI assistant, anything bespoke. Starting price."}
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top top-min">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Cambyte home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#0E7C66"/><path d="M21.5 11.2A6.5 6.5 0 1 0 21.5 20.8" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/><circle cx="22.5" cy="16" r="2" fill="#fff"/></svg><b>Cam<span>byte</span></b></a>
+    <div>
+      <a class="back" href="/">All services</a>
+      <a class="head-cta" href="#contact">Get a quote</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Cambridge, UK · App development for small businesses</p>
+    <h1>Your own business app, live on the App Store <em>in two to four weeks.</em></h1>
+    <p class="lede">Built in Cambridge by one developer who has already shipped an app you can download right now. You get a fixed written quote before any work starts, you own the code, and you choose a one-off payment or a monthly care plan.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#contact">Get a free quote
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a class="btn btn-ghost" href="#pricing">See prices</a>
+    </div>
+    <ul class="trust">
+      <li>Apps from £1,500</li>
+      <li>App Store submission included</li>
+      <li>You own the code</li>
+      <li>Taking new projects now</li>
+    </ul>
+  </div>
+</section>
+
+<section id="proof" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Try before you buy</p>
+      <h2>Download what I built. It is free.</h2>
+      <p>Most developers show you screenshots. I would rather you put a finished app on your own phone and judge for yourself.</p>
+    </div>
+    <div class="proof">
+      <div>
+        <span class="tag live">Live on the App Store</span>
+        <h3 style="font-family:var(--font-head);font-weight:800;font-size:clamp(22px,3vw,30px);letter-spacing:-.02em;margin:14px 0 4px">Draw &amp; Learn to Talk with Bob</h3>
+        <p class="meta" style="font-family:var(--font-mono);font-size:12.5px;color:var(--ink-faint)">iPhone &amp; iPad · Education · Free · No ads · No sign-up · Works offline</p>
+        <p>A children's drawing app: kids trace, colour and learn first words, letters and numbers while Bob the robot says every word out loud in 18 languages. I designed it, built it, got it through Apple's strict Kids-category review first time, and published it. Everything you see in it, I can do for your business.</p>
+        <div class="stats">
+          <div class="stat"><b>500+</b><span>pictures</span></div>
+          <div class="stat"><b>18</b><span>languages</span></div>
+          <div class="stat"><b>3</b><span>releases</span></div>
+          <div class="stat"><b>0</b><span>ads or tracking</span></div>
+        </div>
+        <div class="qr-row">
+          <div class="qr"><img src="/assets/img/dl-qr.svg" alt="QR code linking to Draw & Learn on the App Store" width="110" height="110"></div>
+          <div>
+            <a class="badge" href="https://apps.apple.com/app/id6777554616?ct=cambyte-apps" rel="noopener"><img src="/assets/img/app-store-badge.svg" alt="Download on the App Store" width="150" height="50"></a>
+            <small>Scan with your phone, or tap on iPhone.</small>
+          </div>
+        </div>
+      </div>
+      <div class="shots">
+        <img class="phone" src="/assets/img/dl-iphone-1.jpg" alt="Draw &amp; Learn on iPhone: a child colouring a picture while Bob the robot cheers" width="414" height="900" loading="lazy">
+        <img class="tablet" src="/assets/img/dl-ipad-1.jpg" alt="Draw &amp; Learn on iPad: tracing letters with Bob" width="900" height="675" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ideas">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What I can build for you</p>
+      <h2>Apps for the kind of business you actually run.</h2>
+      <p>These are starting points, not a menu. Tell me what is slow or missing in your day and we work out what the app should do.</p>
+    </div>
+    <div class="ideas">
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M6 2v2M10 2v2M14 2v2"/></svg></div><div><h3>Café, bakery, takeaway</h3><p>Menu, loyalty stamps, order-ahead, a push when the bread is out.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><div><h3>Salon, barber, beauty</h3><p>Online bookings, reminders that cut no-shows, stylist profiles.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4v16M18 4v16M3 8h3M18 8h3M3 16h3M18 16h3M6 12h12"/></svg></div><div><h3>Gym, yoga, studio</h3><p>Class timetable, bookings, memberships, waiting lists.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.8-3.8a6 6 0 0 1-7.9 7.9l-6.9 6.9a2.1 2.1 0 0 1-3-3l6.9-6.9a6 6 0 0 1 7.9-7.9z"/></svg></div><div><h3>Trades and services</h3><p>Quotes on site, photo job reports, invoices, customer sign-off.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg></div><div><h3>Estate and lettings agents</h3><p>Listings, viewing bookings, tenant requests, document uploads.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 8l10 5 10-5z"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5"/></svg></div><div><h3>Nurseries, tutors, clubs</h3><p>Parent updates, photos, homework, payments. Kids-safe by design.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M5 3h14l-1 9a6 6 0 0 1-12 0z"/></svg></div><div><h3>Pubs, venues, events</h3><p>What's on, table booking, tickets, a loyalty card that lives on the phone.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/><circle cx="12" cy="12" r="9"/></svg></div><div><h3>Clinics, dentists, therapists</h3><p>Appointments, reminders, intake forms, aftercare instructions.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M6 6L5 3H2"/></svg></div><div><h3>Shops and retail</h3><p>Catalogue, click-and-collect, stock alerts, offers to regulars.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></div><div><h3>Charities, churches, societies</h3><p>Membership, events, newsletters, donations in two taps.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><div><h3>Staff-only apps</h3><p>Rotas, checklists, stock counts, incident reports. Replaces the WhatsApp group.</p></div></article>
+      <article class="idea"><div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></svg></div><div><h3>AI assistant for your business</h3><p>Answers customer questions from your own documents, inside your app, 24 hours a day.</p></div></article>
+    </div>
+    <p class="ideas-note">Already have an app that is broken, rejected by Apple, or abandoned by its developer? I take those on too, at a fixed fee after a free look.</p>
+  </div>
+</section>
+
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Pricing</p>
+      <h2>Honest starting prices. Final price agreed before we start.</h2>
+      <p>These are the lowest realistic figures for each kind of app. Your written quote is based on exactly what your app needs, and it does not change unless you change the scope.</p>
+    </div>
+    <div class="tiers">
+      <article class="tier">
+        <h3>Starter</h3>
+        <p class="for">For a café, salon, club or trade that needs a simple presence on customers' phones.</p>
+        <p class="price"><small>from</small>£1,500</p>
+        <p class="time">Live in about 2 weeks</p>
+        <ul>
+          <li>iPhone app, up to 6 screens</li>
+          <li>Menu, prices, opening hours, contact, map</li>
+          <li>Loyalty card or booking link</li>
+          <li>Your branding, icon and store screenshots</li>
+          <li>App Store submission handled for you</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:hello@cambyte.co.uk?subject=Starter%20app%20quote">Ask about Starter</a>
+      </article>
+      <article class="tier pop">
+        <span class="tag pop-tag">Most popular</span>
+        <h3>Business</h3>
+        <p class="for">For bookings, orders, members or customer accounts. The app most small businesses actually need.</p>
+        <p class="price"><small>from</small>£3,500</p>
+        <p class="time">Live in 4 to 6 weeks</p>
+        <ul>
+          <li>iPhone app, up to 12 screens</li>
+          <li>Customer accounts and sign-in</li>
+          <li>Bookings, orders or memberships</li>
+          <li>Push notifications to your customers</li>
+          <li>Simple admin so you can update things yourself</li>
+          <li>App Store submission handled for you</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:hello@cambyte.co.uk?subject=Business%20app%20quote">Ask about Business</a>
+      </article>
+      <article class="tier">
+        <h3>Custom &amp; AI</h3>
+        <p class="for">For payments, integrations with the systems you already use, or AI features.</p>
+        <p class="price"><small>from</small>£7,500</p>
+        <p class="time">Timeline agreed with the quote</p>
+        <ul>
+          <li>Everything in Business</li>
+          <li>Card payments and subscriptions</li>
+          <li>Connects to your booking, stock or accounting software</li>
+          <li>AI assistant trained on your own documents</li>
+          <li>iPhone and Android together if you need both</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:hello@cambyte.co.uk?subject=Custom%20app%20quote">Ask about Custom</a>
+      </article>
+    </div>
+    <p class="fine">Prices are in pounds sterling and are starting points. For comparison, UK agencies typically quote £10,000 to £25,000 for a simple app. I can charge less because you deal with one developer, with no office, no account managers and no outsourcing, and because I reuse solid, tested foundations instead of starting every app from zero.</p>
+    <div class="addons">
+      <h3>Add-ons</h3>
+      <ul class="chips">
+        <li>Android version <b>+40%</b></li>
+        <li>AI chat assistant <b>+£1,000</b></li>
+        <li>Card payments (Stripe) <b>+£750</b></li>
+        <li>Store listing: icon, screenshots, copy <b>+£250</b></li>
+        <li>Web app instead of App Store <b>from £800</b></li>
+        <li>Extra changes after launch <b>£45 / hour</b></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pay">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Two ways to pay</p>
+      <h2>One-off and done, or one-off plus a care plan.</h2>
+      <p>Either way the build price is the same and the code is yours. The difference is what happens after launch.</p>
+    </div>
+    <div class="pay">
+      <article class="card">
+        <p class="lead">Option A</p>
+        <h3>One-off payment, no monthly fees</h3>
+        <p>You pay for the build, I hand everything over, and that is the end of it. Perfect if your app will not change much. When you do need something, you ask and pay by the hour.</p>
+        <ul>
+          <li>50% deposit to start, 50% when Apple approves the app</li>
+          <li>Nothing else to pay, ever, unless you ask for more work</li>
+          <li>30 days of free bug fixes after launch</li>
+          <li>Changes later at £45 per hour, quoted first</li>
+        </ul>
+      </article>
+      <article class="card">
+        <p class="lead">Option B</p>
+        <h3>One-off payment plus a care plan</h3>
+        <p>Same build price, then a small monthly fee and I keep the app healthy: new iPhone updates, Apple's rule changes, bug fixes, and a bank of hours for changes. Rolling monthly, cancel with 30 days' notice.</p>
+        <ul>
+          <li>Same 50% deposit, 50% on approval</li>
+          <li>Care plan starts the month after launch</li>
+          <li>No contract, no lock-in, no minimum term</li>
+          <li>Unused hours do not expire for 3 months</li>
+        </ul>
+      </article>
+    </div>
+    <div class="care">
+      <table>
+        <thead><tr><th scope="col">Care plan</th><th scope="col">What is included</th><th scope="col">Best for</th></tr></thead>
+        <tbody>
+          <tr><td>Care<span class="m">£49 / month</span></td><td>iOS and App Store updates, security patches, bug fixes, 1 hour of changes a month, email support</td><td>Starter apps that rarely change</td></tr>
+          <tr><td>Care Plus<span class="m">£149 / month</span></td><td>Everything in Care, 4 hours of changes a month, content and menu updates, a short monthly report, priority replies</td><td>Business apps with regular updates</td></tr>
+          <tr><td>Care Pro<span class="m">£299 / month</span></td><td>Everything in Care Plus, 10 hours a month for new features, usage analytics, same-day response on problems</td><td>Apps your customers rely on daily</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="terms">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>You own the code and the App Store listing from the day of final payment.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Apple's own developer fee (£79 a year, paid to Apple) is the only cost not included.</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>If the scope changes mid-build, the quote changes first, in writing, not the invoice.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="how" class="alt">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">How it works</p>
+      <h2>From first chat to the App Store.</h2>
+    </div>
+    <div class="steps-4">
+      <div class="step"><span class="num">01</span><h3>Free chat</h3><p>Thirty minutes by phone, video or coffee in Cambridge. You describe the business, I ask the awkward questions. No obligation.</p></div>
+      <div class="step"><span class="num">02</span><h3>Fixed quote</h3><p>Within two days you get a one-page plan: what the app does, screen by screen, the price and the date. Sign it and we start within a week.</p></div>
+      <div class="step"><span class="num">03</span><h3>Build, with you watching</h3><p>A test version on your own phone within the first week, then updates every few days. You see it grow and steer it.</p></div>
+      <div class="step"><span class="num">04</span><h3>Launch and handover</h3><p>I submit to Apple, deal with their review, and hand you the code, the accounts and a plain-English guide. Then care plan or goodbye, your call.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Questions</p>
+      <h2>Things people ask before they email.</h2>
+    </div>
+    <div class="faq">
+      <details><summary>Who owns the app and the code?</summary><p>You do, fully, once the final payment clears. Source code, design files, the App Store listing and any accounts are handed over in your name. If you ever want another developer to take it on, they can.</p></details>
+      <details><summary>Do I need an Apple developer account?</summary><p>Yes. Apple requires apps to be published under the account of the business that owns them, so I set one up with you on day one. It costs £79 a year, paid to Apple. Approval from Apple can take a few days for a sole trader and up to two weeks for a limited company, so we start that first while I build.</p></details>
+      <details><summary>How long does Apple's review take?</summary><p>Usually one to three days, occasionally a week. I prepare the submission to pass first time and handle any questions from Apple myself. I never promise a public launch date, because that last step belongs to Apple.</p></details>
+      <details><summary>What about Android?</summary><p>Every app can have an Android version, built natively in Kotlin, for 40% on top of the iPhone price. Most small businesses in the UK start with iPhone and add Android once the app is earning its keep.</p></details>
+      <details><summary>Why are you so much cheaper than an agency?</summary><p>One person does the design, the code, the testing and the release. There is no office, no project manager and no outsourcing to pay for. I also use modern AI tooling and reusable, tested foundations, so a Starter app takes days of real work rather than months of billable ones. The quality bar is the app you can download above.</p></details>
+      <details><summary>What if I want changes after launch?</summary><p>On the one-off option, email me and you get a quote, usually in hours at £45 an hour. On a care plan you have a bank of hours each month and just ask. Either way, nothing is done without you agreeing it first.</p></details>
+      <details><summary>Can you fix an app someone else built?</summary><p>Usually, yes. Send me what you have and I will take a free look. Rescue work is quoted as a fixed fee, and a port to a modern codebase is often cheaper than you fear.</p></details>
+      <details><summary>Do you work outside Cambridge?</summary><p>Yes. Everything can be done by video call and TestFlight, so location does not matter. Cambridge businesses get the coffee option.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <p class="eyebrow" style="justify-content:center">Contact</p>
+      <h2>Tell me about your app.</h2>
+      <p>One email is enough: what the business is and what you want the app to do. You will get a reply from me, usually the same day, with a time for a free 30-minute chat.</p>
+      <a class="email" href="mailto:hello@cambyte.co.uk?subject=App%20quote%20request">hello@cambyte.co.uk</a>
+      <p class="sub">Roberto Pires Almeida · Cambyte · Cambridge, UK</p>
+      <div class="socials">
+        <a href="https://apps.apple.com/app/id6777554616?ct=cambyte-apps" rel="noopener">Try Draw &amp; Learn</a>
+        <a href="/">Everything else Cambyte does</a>
+        <a href="https://www.linkedin.com/in/roberto-pires-03986415a/" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Cambyte · Roberto Pires Almeida · Cambridge, UK</div>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/privacy/">Privacy</a></li>
+      <li><a href="mailto:hello@cambyte.co.uk">hello@cambyte.co.uk</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
