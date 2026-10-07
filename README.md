@@ -1,9 +1,9 @@
 # cambyte.co.uk
 
-Static site for Cambyte (apps, IT support, AI consulting — Cambridge, UK). No build step.
+Static site for Cambyte (app development, AI consulting — Cambridge, UK). No build step.
 
 ## Edit
-Change `index.html` / `privacy/index.html`, commit, push `main`. Cloudflare Pages redeploys in ~1 min.
+Change `index.html` / `apps/index.html` / `privacy/index.html`, commit, push `main`. **Live host is GitHub Pages** (custom domain cambyte.co.uk, Wix DNS A records) — redeploys in ~1 min. Cloudflare Pages below is a spare mirror only; see `HANDOVER.md`.
 
 Preview: `python3 -m http.server 8765` then open http://localhost:8765/
 
