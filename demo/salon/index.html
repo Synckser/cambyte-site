@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Orla &amp; Quill</title>
+<meta name="description" content="Orla &amp; Quill is a made-up hair salon. A demo of a small-business website that takes bookings and test payments and has an AI receptionist.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23a23e2b%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-size=%2720%27 text-anchor=%27middle%27 fill=%27%23f8f1e7%27 font-family=%27Georgia,serif%27%3EO%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap">
+<link rel="stylesheet" href="salon.css">
+</head>
+<body data-page="home">
+<a class="skip" href="#book">Skip to booking</a>
+
+<div class="demo-banner" role="region" aria-label="Demo notice">
+  <p>Demo business made up by Cambyte — test payments, nothing is charged or sent.</p>
+  <a href="/">Back to Cambyte</a>
+</div>
+
+<header class="site-head">
+  <a class="brand" href="./" aria-label="Orla &amp; Quill, home">
+    <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 29c2-8 7-15 17-19-1 8-6 15-14 18l-3 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 24c3-1 7-4 9-9" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+    <span>Orla <em>&amp;</em> Quill</span>
+  </a>
+  <button type="button" class="switch" id="open-switch" role="switch" aria-checked="true" data-switch>
+    <span class="switch-track" aria-hidden="true"><span class="switch-knob"></span></span>
+    <span class="switch-text"><span class="switch-cap">Owner switch</span> <strong data-switch-label>Open</strong></span>
+  </button>
+  <nav class="site-nav" aria-label="Main">
+    <a href="#services">Services</a>
+    <a href="#book">Book</a>
+    <a href="#vouchers">Vouchers</a>
+    <a href="#hours">Hours</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">A made-up salon</p>
+      <h1 id="hero-title">Hair, done slowly <em>and</em> properly.</h1>
+      <p class="lede">Cuts, colour and balayage by appointment. Book a time that is genuinely free, pay a small deposit, and ask our AI receptionist anything you like.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#book">Book an appointment</a>
+        <button type="button" class="btn btn-ghost" data-open-assistant>Ask Orla &amp; Quill</button>
+      </div>
+      <p class="fine">This whole site is a demo of what Cambyte can build for a small business. The salon, its people and its bookings are invented.</p>
+    </div>
+    <svg class="hero-art" viewBox="0 0 420 460" aria-hidden="true" focusable="false">
+      <circle cx="260" cy="190" r="150" fill="var(--blush)"/>
+      <circle cx="140" cy="330" r="86" fill="var(--sage-soft)"/>
+      <g fill="none" stroke="var(--clay)" stroke-width="2.2" stroke-linecap="round">
+        <path d="M60 40c120 20 40 120 150 150s70 140 140 230"/>
+        <path d="M80 30c120 22 46 118 156 152s72 138 140 238" opacity=".85"/>
+        <path d="M100 22c118 24 52 114 160 154s74 136 140 246" opacity=".7"/>
+        <path d="M120 16c116 26 58 110 164 156s76 134 140 254" opacity=".55"/>
+        <path d="M140 10c114 28 64 106 168 158s78 132 140 262" opacity=".4"/>
+      </g>
+      <path d="M232 128c-28 54-58 90-116 118 6-52 40-96 116-118z" fill="var(--ink)"/>
+      <path d="M232 128c-34 34-70 72-116 118" fill="none" stroke="var(--paper)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M116 246l-26 46" fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+  </section>
+
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="section-head">
+      <p class="eyebrow">Services</p>
+      <h2 id="services-title">What we do, and what it costs</h2>
+      <p>Fixed prices. Times include a short rest between clients, which is why we never rush you.</p>
+    </div>
+    <ul class="service-list" id="service-list">
+      <li><div><h3>Haircut and finish</h3><p>Consultation, wash, cut and a blow-dry finish.</p></div><p class="meta"><span class="price">£45</span><span class="dur">1 hr</span></p></li>
+      <li><div><h3>Blow-dry</h3><p>Wash and blow-dry, with styling.</p></div><p class="meta"><span class="price">£28</span><span class="dur">45 min</span></p></li>
+      <li><div><h3>Men's cut</h3><p>Clipper or scissor cut, neck cleaned up.</p></div><p class="meta"><span class="price">£25</span><span class="dur">30 min</span></p></li>
+      <li><div><h3>Beard trim</h3><p>Shape, trim and tidy.</p></div><p class="meta"><span class="price">£15</span><span class="dur">30 min</span></p></li>
+      <li><div><h3>Root colour</h3><p>Regrowth covered with a single all-over shade.</p></div><p class="meta"><span class="price">£55</span><span class="dur">1 hr 30</span></p></li>
+      <li><div><h3>Half-head highlights</h3><p>Foils placed around the crown and parting, toned to finish.</p></div><p class="meta"><span class="price">£85</span><span class="dur">2 hr</span></p></li>
+      <li><div><h3>Balayage</h3><p>Hand-painted, soft-blended colour with a gloss to finish.</p></div><p class="meta"><span class="price">£140</span><span class="dur">2 hr 30</span></p></li>
+      <li><div><h3>Gloss and treatment</h3><p>Shine-boosting gloss or a deep conditioning treatment.</p></div><p class="meta"><span class="price">£30</span><span class="dur">45 min</span></p></li>
+      <li><div><h3>Occasion hair</h3><p>Up-do or styled hair for a wedding, party or photos.</p></div><p class="meta"><span class="price">£60</span><span class="dur">1 hr</span></p></li>
+    </ul>
+    <p class="fine">Booking deposit: £10 for services under £50, £20 for services of £50 or more. It comes off your bill on the day.</p>
+  </section>
+
+  <section class="section section-tint" id="book" aria-labelledby="book-title">
+    <div class="section-head">
+      <p class="eyebrow">Book online</p>
+      <h2 id="book-title">Find a time that is really free</h2>
+      <p>Pick a service, a stylist and a day. Only times that are genuinely open are shown, and we check again before confirming.</p>
+    </div>
+    <div class="closed-note" id="closed-note" hidden></div>
+    <div id="booking" class="booking" aria-live="polite">
+      <noscript><p class="fine">Online booking needs JavaScript. You can still see our services, prices and hours on this page.</p></noscript>
+    </div>
+  </section>
+
+  <section class="section" id="team" aria-labelledby="team-title">
+    <div class="section-head">
+      <p class="eyebrow">The team</p>
+      <h2 id="team-title">Three stylists</h2>
+    </div>
+    <ul class="team">
+      <li><h3>Mara</h3><p class="role">Colour and cutting</p><p>Mara looks after most of the colour book: balayage, highlights and glosses.</p><p class="fine">Tue, Wed, Thu, Sat</p></li>
+      <li><h3>Jonah</h3><p class="role">Short cuts and beards</p><p>Jonah does the men's cuts, beards and clean, low-fuss cuts for everyone.</p><p class="fine">Wed, Thu, Fri, Sat</p></li>
+      <li><h3>Priya</h3><p class="role">Cutting, colour and occasion</p><p>Priya cuts, colours and does most of the occasion and up-do work.</p><p class="fine">Tue, Thu, Fri, Sat</p></li>
+    </ul>
+  </section>
+
+  <section class="section section-tint" id="vouchers" aria-labelledby="vouchers-title">
+    <div class="section-head">
+      <p class="eyebrow">Gift vouchers</p>
+      <h2 id="vouchers-title">Give someone a good hair day</h2>
+      <p>Vouchers come in three fixed values and can be spent on any service. This is a demo, so no voucher is real.</p>
+    </div>
+    <div id="voucher-basket" class="basket">
+      <noscript><p class="fine">Vouchers: £25, £50 and £100. Buying them needs JavaScript.</p></noscript>
+    </div>
+  </section>
+
+  <section class="section" id="hours" aria-labelledby="hours-title">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Opening hours</p>
+        <h2 id="hours-title">When we are in</h2>
+        <table class="hours-table">
+          <caption class="sr-only">Opening hours</caption>
+          <tbody>
+            <tr><th scope="row">Monday</th><td>Closed</td></tr>
+            <tr><th scope="row">Tuesday</th><td>9:30am to 5:30pm</td></tr>
+            <tr><th scope="row">Wednesday</th><td>9:30am to 5:30pm</td></tr>
+            <tr><th scope="row">Thursday</th><td>11am to 8pm (late night)</td></tr>
+            <tr><th scope="row">Friday</th><td>9:30am to 5:30pm</td></tr>
+            <tr><th scope="row">Saturday</th><td>9am to 5pm</td></tr>
+            <tr><th scope="row">Sunday</th><td>Closed</td></tr>
+          </tbody>
+        </table>
+        <p class="fine">Orla &amp; Quill is a made-up salon, so there is no street address. Email: <a href="mailto:hello@orla-quill.example">hello@orla-quill.example</a></p>
+      </div>
+      <div>
+        <p class="eyebrow">Our policy</p>
+        <h2>Moving or cancelling</h2>
+        <p>Move or cancel free of charge up to 24 hours before your appointment. Inside 24 hours, your deposit is kept. That is this made-up salon's own policy.</p>
+        <p>Deposits are taken by card on Stripe's own secure page. This site never sees or stores card details.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-tint" id="owner" aria-labelledby="owner-title">
+    <div class="owner-card">
+      <div>
+        <p class="eyebrow">Owner's view</p>
+        <h2 id="owner-title">What <span data-owner-name>Sam</span> sees on their phone</h2>
+        <p>Every booking made here, by form or by the AI receptionist, lands on the owner's phone straight away. Open it in a second tab and book something.</p>
+        <p><a class="btn btn-primary" href="owner.html" target="_blank" rel="noopener">Open Sam's phone</a></p>
+      </div>
+      <dl class="owner-mini" aria-live="polite">
+        <div><dt>Bookings today</dt><dd data-mini="today">0</dd></div>
+        <div><dt>Deposits taken today (demo)</dt><dd data-mini="deposits">£0</dd></div>
+        <div><dt>Handled by the AI</dt><dd data-mini="ai">0</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section" id="costs" aria-labelledby="costs-title">
+    <div class="costs">
+      <p class="eyebrow">For business owners</p>
+      <h2 id="costs-title">What a site like this costs you per month</h2>
+      <p>No hidden extras. These are the running costs of the pieces you have just been using.</p>
+      <dl class="cost-list">
+        <div><dt>Hosting a static site</dt><dd>Usually £0 on static hosting.</dd></div>
+        <div><dt>Cambyte care plan</dt><dd>From £49 a month. Care plans are £49, £149 and £299 a month.</dd></div>
+        <div><dt>AI replies</dt><dd>Cloudflare Workers Paid is $5 a month, plus usage.</dd></div>
+        <div><dt>Card payments</dt><dd>Stripe's standard UK card fee is 1.5% + 20p per payment.</dd></div>
+      </dl>
+      <p class="fine">The receptionist on this demo runs in your browser on fixed rules and costs nothing to run. A live one that writes its own replies would run on a server, which is where the AI line above comes in.</p>
+      <p><a class="btn btn-ghost" href="/">Back to Cambyte</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <p>Demo website built by Cambyte. <a href="/">Back to Cambyte</a></p>
+  <p class="fine">Orla &amp; Quill is made up. Test payments only, nothing is charged or sent. <a href="mailto:hello@orla-quill.example">hello@orla-quill.example</a></p>
+</footer>
+
+<button type="button" class="assistant-fab" id="assistant-fab" aria-expanded="false" aria-controls="assistant" data-open-assistant>
+  <span class="fab-dot" aria-hidden="true"></span> Ask Orla &amp; Quill
+</button>
+
+<section class="assistant" id="assistant" role="dialog" aria-modal="false" aria-labelledby="assistant-title" hidden>
+  <div class="as-head">
+    <div>
+      <h2 id="assistant-title">Ask Orla &amp; Quill</h2>
+      <p class="as-label">AI assistant — not a person</p>
+    </div>
+    <div class="as-tools">
+      <button type="button" class="icon-btn" id="as-min" aria-expanded="true" aria-label="Minimise assistant" title="Minimise">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M4 8l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="icon-btn" id="as-close" aria-label="Close assistant" title="Close">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M5 5l10 10M15 5L5 15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="as-voice" id="as-voice" data-voice="off">
+    <p class="as-note" id="as-voice-note" hidden></p>
+    <div class="as-voice-live" id="as-voice-live" hidden>
+      <button type="button" class="ring" id="as-ring" aria-label="Tap to pause or interrupt">
+        <span class="ring-dot" id="mic-dot" aria-hidden="true" hidden></span>
+        <span class="ring-state" id="as-vstate">Paused</span>
+      </button>
+      <p class="caption" id="as-caption" aria-live="polite"></p>
+      <button type="button" class="btn btn-stop" id="as-stop">Stop</button>
+    </div>
+  </div>
+
+  <div class="as-body">
+    <div class="msgs" id="as-msgs" role="log" aria-live="polite" aria-label="Conversation"></div>
+    <div class="chips" id="as-chips">
+      <button type="button" class="chip">Balayage Saturday afternoon</button>
+      <button type="button" class="chip">How much is a cut?</button>
+      <button type="button" class="chip">Opening hours</button>
+      <button type="button" class="chip">Cancellation policy</button>
+    </div>
+  </div>
+
+  <div class="as-foot">
+    <form id="as-form" autocomplete="off">
+      <label class="sr-only" for="as-input">Type your message</label>
+      <input id="as-input" name="message" type="text" placeholder="Type a message" autocomplete="off" enterkeyhint="send" maxlength="300">
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+    <p class="as-note as-note-foot" id="as-voice-info" hidden></p>
+    <div class="as-actions">
+      <button type="button" class="btn btn-voice" id="as-start">Start conversation</button>
+      <a class="btn btn-person" id="as-person" href="mailto:hello@orla-quill.example">Talk to a person</a>
+    </div>
+  </div>
+</section>
+
+<dialog id="pay-dialog" class="pay-dialog" aria-labelledby="pay-title"></dialog>
+
+<script src="salon-data.js"></script>
+<script src="../../assets/guards.js"></script>
+<script src="salon.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+/* Cambyte on-page assistant. Every class is prefixed cba- ; colours come from style.css tokens. */
+:root {
+  --cba-user-bg: var(--navy);
+  --cba-user-ink: var(--cream);
+  --cba-bot-bg: var(--tile);
+  --cba-on: var(--navy);
+  --cba-shadow: 0 10px 34px rgba(11, 20, 34, .22), 0 2px 8px rgba(11, 20, 34, .12);
+  --cba-listen: #C4361B;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --cba-user-bg: var(--yellow);
+    --cba-user-ink: var(--navy);
+    --cba-bot-bg: var(--navy-3);
+    --cba-shadow: 0 10px 34px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .06);
+    --cba-listen: #FF6B4D;
+  }
+}
+:root[data-theme="dark"] {
+  --cba-user-bg: var(--yellow);
+  --cba-user-ink: var(--navy);
+  --cba-bot-bg: var(--navy-3);
+  --cba-shadow: 0 10px 34px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, .06);
+  --cba-listen: #FF6B4D;
+}
+
+.cba-root { font-family: var(--font); letter-spacing: -.011em; }
+.cba-root *, .cba-root *::before, .cba-root *::after { box-sizing: border-box; }
+.cba-root [hidden] { display: none !important; }
+:where(.cba-root) button, :where(.cba-root) input { font: inherit; color: inherit; }
+
+/* Launcher */
+.cba-launcher {
+  position: fixed; z-index: 70;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: flex; align-items: center; gap: 10px;
+  padding: 0; border: 0; background: none; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cba-launch-label {
+  padding: 9px 14px; border-radius: 999px;
+  background: var(--card); color: var(--ink); border: 1px solid var(--line);
+  font-size: 14px; font-weight: 600; line-height: 1.2; white-space: nowrap;
+  box-shadow: var(--cba-shadow);
+  transition: transform .25s var(--ease), opacity .2s var(--ease);
+}
+.cba-launch-face {
+  position: relative; flex: none; width: 56px; height: 56px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--navy); border: 1px solid var(--navy-line);
+  box-shadow: var(--cba-shadow);
+  transition: transform .25s var(--ease);
+}
+.cba-launcher:hover .cba-launch-face { transform: scale(1.06); }
+.cba-launcher:focus-visible { outline: none; }
+.cba-launcher:focus-visible .cba-launch-face { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.cba-launcher:focus-visible .cba-launch-label { box-shadow: 0 0 0 2px var(--link), var(--cba-shadow); }
+.cba-root.cba-open .cba-launch-label { opacity: 0; pointer-events: none; transform: translateX(8px); }
+
+/* Face */
+.cba-face { display: block; width: 100%; height: 100%; }
+.cba-face-bg { fill: var(--navy); }
+.cba-face-eye { fill: var(--yellow); }
+.cba-face-smile { fill: none; stroke: var(--yellow); stroke-width: 2.6; stroke-linecap: round; }
+.cba-launch-face .cba-face { width: 34px; height: 34px; }
+@media (prefers-reduced-motion: no-preference) {
+  .cba-face-eye { transform-box: fill-box; transform-origin: center; animation: cba-blink 5.5s infinite; }
+  .cba-face-eye + .cba-face-eye { animation-delay: 0s; }
+}
+@keyframes cba-blink {
+  0%, 94%, 100% { transform: scaleY(1); }
+  97% { transform: scaleY(.1); }
+}
+
+/* Panel */
+.cba-panel {
+  position: fixed; z-index: 71;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(84px + env(safe-area-inset-bottom, 0px));
+  width: 360px; height: 540px; max-height: calc(100vh - 110px); max-height: calc(100dvh - 110px);
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--card); color: var(--ink);
+  border: 1px solid var(--line); border-radius: 20px;
+  box-shadow: var(--cba-shadow);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .cba-panel { animation: cba-in .28s var(--ease); }
+}
+@keyframes cba-in { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: none; } }
+
+.cba-head {
+  display: flex; align-items: center; gap: 10px; flex: none;
+  padding: 12px 12px 12px 14px;
+  background: var(--navy); color: var(--cream);
+}
+.cba-head .cba-face { width: 32px; height: 32px; flex: none; }
+.cba-title { flex: 1; min-width: 0; font-size: 15px; font-weight: 600; line-height: 1.2; }
+.cba-title small { display: block; margin-top: 1px; font-size: 12px; font-weight: 400; color: var(--on-navy-2); }
+.cba-icon-btn {
+  flex: none; width: 36px; height: 36px; border-radius: 50%;
+  display: grid; place-items: center; color: var(--cream);
+}
+.cba-icon-btn:hover { background: rgba(255, 255, 255, .12); }
+.cba-icon-btn:focus-visible { outline: 2px solid var(--yellow); outline-offset: 1px; }
+.cba-icon-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cba-icon-btn[aria-pressed="true"] { background: var(--yellow); color: var(--navy); }
+
+.cba-log {
+  flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: 14px 14px 6px; display: flex; flex-direction: column; gap: 8px;
+  background: var(--card);
+}
+.cba-msg { max-width: 86%; display: flex; flex-direction: column; gap: 6px; }
+.cba-msg-bot { align-self: flex-start; }
+.cba-msg-user { align-self: flex-end; align-items: flex-end; }
+.cba-bubble {
+  padding: 9px 13px; border-radius: 16px; font-size: 15px; line-height: 1.4;
+  overflow-wrap: anywhere; white-space: pre-wrap;
+}
+.cba-msg-bot .cba-bubble { background: var(--cba-bot-bg); color: var(--ink); border-bottom-left-radius: 5px; }
+.cba-msg-user .cba-bubble { background: var(--cba-user-bg); color: var(--cba-user-ink); border-bottom-right-radius: 5px; }
+.cba-links { display: flex; flex-wrap: wrap; gap: 6px; }
+.cba-link {
+  display: inline-block; padding: 5px 11px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--link);
+  font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.cba-link:hover { border-color: var(--link); }
+.cba-link:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.cba-chips {
+  flex: none; display: flex; flex-wrap: wrap; gap: 6px;
+  padding: 8px 14px; max-height: 136px; overflow-y: auto;
+  background: var(--card);
+}
+.cba-chip {
+  padding: 7px 12px; border-radius: 999px; font-size: 13.5px; font-weight: 500; line-height: 1.2;
+  border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  transition: background .15s var(--ease), border-color .15s var(--ease);
+}
+.cba-chip:hover { border-color: var(--link); }
+.cba-chip:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+.cba-chip[aria-pressed="true"] { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+:root[data-theme="dark"] .cba-chip[aria-pressed="true"] { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cba-chip[aria-pressed="true"] { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+}
+.cba-chip-main { background: var(--navy); color: var(--cream); border-color: var(--navy); font-weight: 600; }
+:root[data-theme="dark"] .cba-chip-main { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cba-chip-main { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+}
+
+.cba-form {
+  flex: none; display: flex; align-items: center; gap: 6px;
+  padding: 8px 10px 8px 14px; border-top: 1px solid var(--line); background: var(--card);
+}
+.cba-input {
+  flex: 1; min-width: 0; height: 40px; padding: 0 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--tile); color: var(--ink); font-size: 15px;
+}
+.cba-input::placeholder { color: var(--ink-2); }
+.cba-input:focus-visible { outline: 2px solid var(--link); outline-offset: 1px; }
+.cba-form .cba-icon-btn { color: var(--ink); width: 40px; height: 40px; }
+.cba-form .cba-icon-btn:hover { background: var(--tile); }
+.cba-form .cba-icon-btn:focus-visible { outline-color: var(--link); }
+.cba-form .cba-icon-btn[aria-pressed="true"] { background: var(--cba-listen); color: #fff; }
+.cba-send { background: var(--navy); color: var(--cream) !important; }
+.cba-send:hover { background: var(--navy-3) !important; }
+:root[data-theme="dark"] .cba-send { background: var(--yellow); color: var(--navy) !important; }
+:root[data-theme="dark"] .cba-send:hover { background: var(--amber) !important; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cba-send { background: var(--yellow); color: var(--navy) !important; }
+  :root:not([data-theme="light"]) .cba-send:hover { background: var(--amber) !important; }
+}
+.cba-note { flex: none; padding: 0 14px 10px; font-size: 12px; line-height: 1.35; color: var(--ink-2); background: var(--card); }
+
+@media (max-width: 734px) {
+  .cba-panel {
+    left: 0; right: 0; bottom: 0; width: auto; height: 80vh; height: 80dvh; max-height: 80vh; max-height: 80dvh;
+    border-radius: 20px 20px 0 0; border-width: 1px 0 0;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .cba-root.cba-open .cba-launcher { display: none; }
+  .cba-input { font-size: 16px; }
+  .cba-msg { max-width: 92%; }
+}
+@media print { .cba-root { display: none !important; } }
+
+/* AI mode: thinking indicator and disabled send button */
+.cba-typing { display: inline-flex; gap: 5px; align-items: center; min-height: 1.2em; }
+.cba-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; opacity: .35; animation: cba-wait 1.2s infinite ease-in-out; }
+.cba-dot:nth-child(2) { animation-delay: .2s; }
+.cba-dot:nth-child(3) { animation-delay: .4s; }
+@keyframes cba-wait { 0%, 80%, 100% { opacity: .25; } 40% { opacity: .9; } }
+@media (prefers-reduced-motion: reduce) { .cba-dot { animation: none; opacity: .6; } }
+.cba-send:disabled { opacity: .5; cursor: default; }
+.cba-icon-btn[aria-disabled="true"], .cba-chip[aria-disabled="true"] { opacity: .5; cursor: default; }
+
+/* Trust kit: label, retention note lines, talk-to-a-person link */
+.cba-note .cba-note-line { display: block; }
+.cba-note .cba-note-line + .cba-note-line { margin-top: 4px; }
+.cba-actions {
+  flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+  padding: 4px 14px 8px; background: var(--card);
+}
+.cba-person {
+  margin-left: auto; font-size: 13px; font-weight: 600; color: var(--link);
+  text-decoration: underline; text-underline-offset: 2px; padding: 6px 2px;
+}
+.cba-person:hover { text-decoration-thickness: 2px; }
+.cba-person:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
+.cba-start {
+  min-height: 40px; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 600;
+  background: var(--navy); color: var(--cream); border: 1px solid var(--navy);
+}
+.cba-start:hover { background: var(--navy-3); }
+.cba-start:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+:root[data-theme="dark"] .cba-start { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+:root[data-theme="dark"] .cba-start:hover { background: var(--amber); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .cba-start { background: var(--yellow); color: var(--navy); border-color: var(--yellow); }
+  :root:not([data-theme="light"]) .cba-start:hover { background: var(--amber); }
+}
+.cba-vnote { margin: 0; flex: 1 1 160px; font-size: 12.5px; line-height: 1.35; color: var(--ink-2); }
+
+/* Hands-free conversation */
+.cba-vbox {
+  flex: none; display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 6px 14px;
+  padding: 10px 14px 12px; border-top: 1px solid var(--line); background: var(--tile);
+}
+.cba-ring {
+  position: relative; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--card); color: var(--ink); border: 3px solid var(--link);
+  grid-row: span 2;
+}
+.cba-ring svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.cba-ring:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+.cba-vbox[data-state="listening"] .cba-ring { border-color: var(--cba-listen); }
+.cba-vbox[data-state="speaking"] .cba-ring { border-color: var(--link); background: var(--navy); color: var(--cream); }
+.cba-vbox[data-state="thinking"] .cba-ring { border-style: dotted; }
+.cba-vbox[data-state="paused"] .cba-ring { border-color: var(--ink-2); color: var(--ink-2); }
+@media (prefers-reduced-motion: no-preference) {
+  .cba-vbox[data-state="listening"] .cba-ring::after {
+    content: ""; position: absolute; inset: -9px; border-radius: 50%;
+    border: 2px solid var(--cba-listen); opacity: .5; animation: cba-pulse 1.6s ease-out infinite;
+  }
+}
+@keyframes cba-pulse { 0% { transform: scale(.85); opacity: .6; } 100% { transform: scale(1.12); opacity: 0; } }
+.cba-vmeta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; min-width: 0; }
+.cba-vstate { font-size: 16px; font-weight: 700; color: var(--ink); }
+.cba-micdot { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; color: var(--ink-2); }
+.cba-reddot { width: 9px; height: 9px; border-radius: 50%; background: var(--cba-listen); display: inline-block; }
+.cba-caption {
+  grid-column: 2; margin: 0; min-height: 1.4em; font-size: 14px; line-height: 1.4; color: var(--ink-2);
+  font-style: italic; overflow-wrap: anywhere; min-width: 0;
+}
+.cba-stop {
+  grid-column: 1 / -1; width: 100%; min-height: 48px; border-radius: 14px;
+  font-size: 16px; font-weight: 700; background: var(--cba-listen); color: #fff; border: 0;
+}
+:root[data-theme="dark"] .cba-stop { color: #1a0a06; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cba-stop { color: #1a0a06; } }
+.cba-stop:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+.cba-panel.cba-voice-on .cba-chips, .cba-panel.cba-voice-on .cba-actions { display: none; }
+
+/* Short viewports (phone on its side, small phones): the panel scrolls as a whole so the log keeps room
+   and the note under the Start button is reachable, not clipped. */
+@media (max-height: 520px) {
+  .cba-panel { overflow-y: auto; overscroll-behavior: contain; }
+  .cba-log { flex: 1 0 150px; min-height: 150px; overscroll-behavior: auto; }
+}

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cambyte — App development and AI consulting for small businesses, worldwide</title>
+<meta name="description" content="Cambyte builds iOS and Android apps and helps small businesses put AI to work, in the UK or any other country. Run from Cambridge, UK, by Roberto Pires Almeida, independent developer with an app live on the App Store.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Cambyte — Apps and AI consulting for small businesses, worldwide">
+<meta property="og:description" content="App development and practical AI consulting for small businesses. Plain English, fixed prices.">
+<meta property="og:url" content="https://cambyte.co.uk/">
+<meta property="og:image" content="https://cambyte.co.uk/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F5F5F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/assistant.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://cambyte.co.uk/#business",
+      "name": "Cambyte",
+      "url": "https://cambyte.co.uk/",
+      "email": "hello@cambyte.co.uk",
+      "description": "App development and AI consulting for small businesses worldwide, run from Cambridge, UK.",
+      "founder": {"@type": "Person", "name": "Roberto Pires Almeida"},
+      "address": {"@type": "PostalAddress", "addressLocality": "Cambridge", "addressCountry": "GB"},
+      "areaServed": "Worldwide",
+      "sameAs": ["https://github.com/synckser", "https://www.linkedin.com/in/roberto-pires-03986415a/"]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Mobile app development",
+      "name": "Small-business app development",
+      "provider": {"@id": "https://cambyte.co.uk/#business"},
+      "areaServed": "Worldwide",
+      "offers": [
+        {"@type": "Offer", "name": "Starter app", "price": "1500", "priceCurrency": "GBP", "description": "iPhone app, up to 6 screens, App Store submission included. Fixed price for the listed features."},
+        {"@type": "Offer", "name": "Business app", "price": "3500", "priceCurrency": "GBP", "description": "iPhone app, up to 12 screens, accounts, bookings or orders, notifications. Fixed price for the listed features."},
+        {"@type": "Offer", "name": "Custom or AI app", "price": "7500", "priceCurrency": "GBP", "description": "Payments, integrations, AI assistant, anything bespoke. Starting price."}
+      ]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "AI consulting",
+      "name": "Practical AI for small teams",
+      "description": "AI receptionists, chatbots trained on your own documents, scheduled AI agents, paperwork automation and private AI that runs on your own computer. Fixed written quote before any work starts.",
+      "provider": {"@id": "https://cambyte.co.uk/#business"},
+      "areaServed": "Worldwide"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-tick" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-8l-5 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M8 10h8M8 13h5"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2.5h8l5 5V20a1.5 1.5 0 0 1-1.5 1.5h-11.5A1.5 1.5 0 0 1 4.5 20V4A1.5 1.5 0 0 1 6 2.5z"/><path d="M14 2.5V8h5.5"/><path d="M8 13h8M8 17h6"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M12 6.5V12l3.5 2.5"/></symbol>
+<symbol id="i-stack" viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5L12 21l9-4.5"/></symbol>
+<symbol id="i-wave" viewBox="0 0 24 24"><path d="M3 10v4M7.5 6v12M12 3v18M16.5 7v10M21 10v4"/></symbol>
+<symbol id="i-pulse" viewBox="0 0 24 24"><path d="M2 12h4l2.5-7 4 14 3-7H22"/></symbol>
+<symbol id="i-wifi-off" viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 4-2.3"/><path d="M10 4.2A15 15 0 0 1 22 8.8"/><path d="M5 12.5a10 10 0 0 1 3.5-2.1"/><path d="M13.5 10.2A10 10 0 0 1 19 12.5"/><path d="M8.5 16.2a5 5 0 0 1 2.5-1.1"/><path d="M14.5 15.6a5 5 0 0 1 1.5.6"/><path d="M12 20h.01"/><path d="M3 3l18 18"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><rect x="4.5" y="3" width="15" height="18" rx="1"/><path d="M9 7.5h1.5M13.5 7.5H15M9 11.5h1.5M13.5 11.5H15"/><path d="M10 21v-4.5h4V21"/></symbol>
+<symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="1.5"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 2.5V6M15 2.5V6M9 18v3.5M15 18v3.5M2.5 9H6M2.5 15H6M18 9h3.5M18 15h3.5"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/><path d="M12 14.5v2.5"/></symbol>
+</svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="gnav">
+  <nav id="nav" class="wrap gnav-in" aria-label="Main">
+    <a class="logo" href="./" aria-label="Cambyte home"><img src="assets/img/mark.png" width="38" height="34" alt=""><span>Cambyte</span></a>
+    <ul id="nav-list" class="gnav-list">
+      <li><a href="#prices">Prices</a></li>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#ai">AI</a></li>
+      <li><a href="#websites">Websites</a></li>
+      <li><a href="#proof">Proof</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#questions">Questions</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="pill pill-sm" href="#reply">Buy an app</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-list" aria-label="Menu"><svg class="ic" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </nav>
+</header>
+<main id="main">
+<section class="hero" aria-labelledby="hero-h">
+ <h1 id="hero-h">Technology that works for your business, <em>not against it.</em></h1>
+ <p class="lede">Apps and practical AI for small businesses. One person, plain English, a fixed price agreed before any work starts.</p>
+ <div class="pills"><a class="pill" href="#reply">Buy an app</a><a class="pill pill-ghost" href="#contact" data-ask-assistant>Ask my AI assistant</a></div>
+ <p class="hero-note" id="shelf-note">Tap an app to order one like it. Examples only: names and figures are made up.</p>
+ <div class="shelf-rail">
+ <ul class="shelf" aria-label="Example apps">
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-salon-top.webp" width="420" height="568" alt=""><span>Salon</span></a></li>
+  <li><a href="#reply" data-pick="starter" aria-describedby="shelf-note"><img src="assets/img/tpl-bakery-top.webp" width="420" height="568" alt=""><span>Bakery</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-gym-top.webp" width="420" height="568" alt=""><span>Gym</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-clinic-top.webp" width="420" height="568" alt=""><span>Clinic</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-pub-top.webp" width="420" height="568" alt=""><span>Pub</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-shop-top.webp" width="420" height="568" alt=""><span>Shop</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-estate-top.webp" width="420" height="568" alt=""><span>Lettings</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-school-top.webp" width="420" height="568" alt=""><span>School</span></a></li>
+  <li><a href="#reply" data-pick="starter" aria-describedby="shelf-note"><img src="assets/img/tpl-trades-top.webp" width="420" height="568" alt=""><span>Trades</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-staff-top.webp" width="420" height="568" alt=""><span>Staff</span></a></li>
+  <li><a href="#reply" data-pick="business" aria-describedby="shelf-note"><img src="assets/img/tpl-charity-top.webp" width="420" height="568" alt=""><span>Charity</span></a></li>
+  <li><a href="#reply" data-pick="custom" aria-describedby="shelf-note"><img src="assets/img/tpl-accounts-phone-top.webp" width="420" height="568" alt=""><span>Accounts</span></a></li>
+  <li><a href="#reply" data-pick="custom" aria-describedby="shelf-note"><img src="assets/img/tpl-assistant-top.webp" width="420" height="568" alt=""><span>AI assistant</span></a></li>
+  <li><a href="#websites" aria-describedby="shelf-note"><img src="assets/img/tpl-website-top.webp" width="420" height="568" alt=""><span>Websites</span></a></li>
+ </ul>
+ </div>
+ <div class="shelf-nav" hidden><button type="button" data-shelf="-1" aria-label="Previous example apps"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-shelf="1" aria-label="Next example apps"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</section>
+<section class="sec sec-tile" id="prices" aria-labelledby="prices-h">
+ <div class="wrap">
+  <header class="sec-head reveal">
+   <p class="eyebrow">App prices</p>
+   <h2 id="prices-h" class="h2">Fixed prices. Order online or talk first.</h2>
+   <p class="sub">Starter and Business are fixed prices for the features listed: order below with a 50% deposit, or email me first. Custom apps get a fixed written quote once you have told me what you need.</p>
+  </header>
+  <div class="tiers">
+   <article class="tier reveal">
+    <p class="tag"></p>
+    <h3>Starter</h3>
+    <p class="for">For a café, salon, club or trade that needs a simple presence on customers' phones.</p>
+    <p class="price">£1,500</p>
+    <p class="time">Live in about 2 weeks</p>
+    <ul class="ticks"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>iPhone app, up to 6 screens</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Menu, prices, opening hours, contact, map</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Loyalty card or booking link</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Your branding, icon and store screenshots</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>App Store submission handled for you</li></ul>
+    <a class="pill pill-ghost" href="#reply" data-pick="starter">Choose Starter</a>
+   </article>
+   <article class="tier reveal">
+    <p class="tag">Most popular</p>
+    <h3>Business</h3>
+    <p class="for">For bookings, orders, members or customer accounts. The app most small businesses actually need.</p>
+    <p class="price">£3,500</p>
+    <p class="time">Live in 4 to 6 weeks</p>
+    <ul class="ticks"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>iPhone app, up to 12 screens</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Customer accounts and sign-in</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Bookings, orders or memberships</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Push notifications to your customers</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Simple admin so you can update things yourself</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>App Store submission handled for you</li></ul>
+    <a class="pill" href="#reply" data-pick="business">Choose Business</a>
+   </article>
+   <article class="tier reveal">
+    <p class="tag"></p>
+    <h3>Custom &amp; AI</h3>
+    <p class="for">For payments, integrations with the systems you already use, or AI features.</p>
+    <p class="price"><small>from </small>£7,500</p>
+    <p class="time">Timeline agreed with the quote</p>
+    <ul class="ticks"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Everything in Business</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Card payments and subscriptions</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Connects to your booking, stock or accounting software</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>AI assistant trained on your own documents</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>iPhone and Android together if you need both</li></ul>
+    <a class="pill pill-ghost" href="#reply" data-pick="custom">Choose Custom &amp; AI</a>
+   </article>
+  </div>
+  <p class="rescue">Already have an app that is broken, rejected by Apple or abandoned by its developer? I fix those too, at a fixed fee after a free look. <a href="#reply" data-pick="unsure">Ask for a free look</a></p>
+  <div class="slip" id="reply" data-slip role="group" aria-labelledby="slip-h">
+   <h3 id="slip-h">Build your order</h3>
+   <p class="slip-intro">Pick an app and any extras, then pay the 50% deposit on Stripe or email me first. Custom apps and AI work start with an email about what you need.</p>
+   <fieldset><legend>What do you need?</legend><div class="choices pkgs">
+  <label class="choice"><input type="radio" name="pkg" value="starter"><span class="choice-in"><span>Starter app</span><small>£1,500 fixed</small></span></label>
+  <label class="choice"><input type="radio" name="pkg" value="business"><span class="choice-in"><span>Business app</span><small>£3,500 fixed</small></span></label>
+  <label class="choice"><input type="radio" name="pkg" value="custom"><span class="choice-in"><span>Custom &amp; AI app</span><small>from £7,500</small></span></label>
+  <label class="choice"><input type="radio" name="pkg" value="ai"><span class="choice-in"><span>AI for my business</span><small>Fixed written quote</small></span></label>
+  <label class="choice"><input type="radio" name="pkg" value="unsure" checked><span class="choice-in"><span>Not sure yet</span><small>Ask by email</small></span></label>
+   </div></fieldset>
+   <fieldset data-extras hidden disabled><legend>Extras</legend><div class="choices">
+  <label class="choice"><input type="checkbox" name="extra" value="android"><span class="choice-in"><span>Android version</span><small data-out="android-price">+40%</small></span></label>
+  <label class="choice"><input type="checkbox" name="extra" value="aichat"><span class="choice-in"><span>AI chat assistant</span><small>+£1,000</small></span></label>
+  <label class="choice"><input type="checkbox" name="extra" value="payments"><span class="choice-in"><span>Card payments (Stripe)</span><small>+£750</small></span></label>
+   </div></fieldset>
+   <p class="extras-note" data-extras-note hidden>Android, payments and AI are priced into Custom quotes.</p>
+   <fieldset data-caresec hidden disabled><legend>Care after launch</legend><div class="choices cares">
+  <label class="choice"><input type="radio" name="care" value="none" checked><span class="choice-in"><span>No care plan</span><small>Pay by the hour, £45</small></span></label>
+  <label class="choice"><input type="radio" name="care" value="care"><span class="choice-in"><span>Care</span><small>£49 a month</small></span></label>
+  <label class="choice"><input type="radio" name="care" value="plus"><span class="choice-in"><span>Care Plus</span><small>£149 a month</small></span></label>
+  <label class="choice"><input type="radio" name="care" value="pro"><span class="choice-in"><span>Care Pro</span><small>£299 a month</small></span></label>
+   </div></fieldset>
+   <fieldset><legend>Who is it for?</legend><div class="choices">
+  <label class="choice"><input type="radio" name="who" value="business"><span class="choice-in"><span>My business</span></span></label>
+  <label class="choice"><input type="radio" name="who" value="me"><span class="choice-in"><span>Just me</span></span></label>
+  <label class="choice"><input type="radio" name="who" value="group"><span class="choice-in"><span>A charity or club</span></span></label>
+   </div></fieldset>
+   <div class="consumer" data-consumer hidden>
+    <p>Buying as a private person, you can cancel within 14 days of paying for a full refund. The kickoff call and the work wait until those 14 days end, unless you tick below to start sooner.</p>
+    <label class="tick"><input type="checkbox" name="early"><span>Start work within the 14 days. If I then cancel, I pay only for the work already done.</span></label>
+   </div>
+   <fieldset><legend>If we need to talk</legend><div class="choices">
+  <label class="choice"><input type="radio" name="talk" value="Phone"><span class="choice-in"><span>Phone</span></span></label>
+  <label class="choice"><input type="radio" name="talk" value="Video call"><span class="choice-in"><span>Video call</span></span></label>
+  <label class="choice"><input type="radio" name="talk" value="Coffee in Cambridge"><span class="choice-in"><span>Coffee in Cambridge</span></span></label>
+   </div></fieldset>
+   <div class="quote" aria-live="polite">
+    <p class="quote-k">Your choices</p>
+    <p class="quote-pkg" data-out="pkg">Not sure yet</p>
+    <p class="quote-line" data-out="extras" data-hide-empty hidden></p>
+    <p class="quote-line" data-out="care" data-hide-empty hidden></p>
+    <p class="quote-k" data-out="estlabel">Price</p>
+    <p class="quote-est" data-out="est">Nothing to pay yet</p>
+    <dl class="quote-split" data-split hidden><dt data-out="todaylabel">Pay today</dt><dd data-out="today"></dd><dt>When Apple approves your app</dt><dd data-out="later"></dd></dl>
+    <p class="quote-fine" data-out="fine">Email me what you need. You get a fixed written quote before any work starts.</p>
+   </div>
+   <div class="order" data-order hidden>
+    <label class="tick"><input type="checkbox" name="agree"><span>I have read and agree to the <a href="terms/">terms</a>, including how refunds work.</span></label>
+    <p class="pay-test" data-pay-test hidden></p>
+    <a class="pill" data-pay role="link" aria-disabled="true" tabindex="0" aria-describedby="pay-hint">Pay deposit with Stripe</a>
+    <p class="pay-hint" id="pay-hint" data-out="payhint" data-hide-empty hidden></p>
+    <a class="pill pill-ghost" data-mail href="mailto:hello@cambyte.co.uk?subject=Hello%20Cambyte&amp;body=Hi%20Roberto%2C%0A%0AI'm%20not%20sure%20yet%20what%20I%20need.%0AIf%20we%20need%20to%20talk%3A%20any%20(phone%2C%20video%20or%20coffee)%0A%0AAbout%20me%20%2F%20my%20business%3A%20%0AWhat%20I%20need%3A%20">Email my request instead</a>
+    <p class="slip-note">You pay on Stripe's secure page; Cambyte never sees your card details. I then email you, usually the same working day, to book the kickoff call.</p>
+   </div>
+   <div data-ask>
+    <dl class="receipt"><dt>To</dt><dd>hello@cambyte.co.uk</dd><dt>Subject</dt><dd data-out="subject">Hello Cambyte</dd><dt>Message</dt><dd class="msg" data-out="body">Hi Roberto,
+
+I&#39;m not sure yet what I need.
+If we need to talk: any (phone, video or coffee)
+
+About me / my business: 
+What I need: </dd></dl>
+    <p class="pay-soon" data-pay-soon hidden>Card payment online opens soon. Email this request and I'll reply with how to pay the deposit.</p>
+    <a class="pill" data-mail href="mailto:hello@cambyte.co.uk?subject=Hello%20Cambyte&amp;body=Hi%20Roberto%2C%0A%0AI'm%20not%20sure%20yet%20what%20I%20need.%0AIf%20we%20need%20to%20talk%3A%20any%20(phone%2C%20video%20or%20coffee)%0A%0AAbout%20me%20%2F%20my%20business%3A%20%0AWhat%20I%20need%3A%20">Email my request</a>
+    <p class="slip-note">Opens your own email app with this filled in. Nothing is sent until you press send.</p>
+   </div>
+  </div>
+  <p class="fine">Prices are in pounds sterling, wherever you are based. Anything beyond the listed features is quoted in writing before it is added. UK agencies typically quote £10,000 to £25,000 for a simple app; I charge less because there is no office, no account managers and no outsourcing.</p>
+  <div class="addons reveal"><h3>Add-ons</h3><ul class="addon-list">
+   <li><span>Android version (40%)</span><b>+£600 / +£1,400</b></li>
+   <li><span>AI chat assistant</span><b>+£1,000</b></li>
+   <li><span>Card payments (Stripe)</span><b>+£750</b></li>
+   <li><span>Store listing: icon, screenshots, copy</span><b>+£250</b></li>
+   <li><span>Web app instead of App Store</span><b>from £800</b></li>
+   <li><span>Extra changes after launch</span><b>£45 / hour</b></li>
+  </ul><p class="addon-note">Android, AI chat and card payments can be added when you order online. Store listing and web app are quoted by email.</p></div>
+  <div id="care">
+    <h3 class="h3-group">Care plans, if you want one</h3>
+    <p class="sub">The build price is the same either way and the code is yours: 50% deposit to start, 50% when Apple approves the app, then 30 days of free bug fixes. After that, changes are £45 an hour, quoted first, or a care plan keeps the app healthy. Plans start the month after launch, roll monthly with 30 days' notice, and unused hours last 3 months.</p>
+    <div class="care">
+     <article class="care-card reveal"><h4>Care</h4><p class="price">£49<small> / month</small></p><ul class="ticks incl"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>iOS and App Store updates, security patches, bug fixes, 1 hour of changes a month, email support</li></ul><p class="best">Starter apps that rarely change</p><a class="care-pick" href="#reply" data-care="care">Add Care to my order</a></article>
+     <article class="care-card reveal"><h4>Care Plus</h4><p class="price">£149<small> / month</small></p><ul class="ticks incl"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Everything in Care, 4 hours of changes a month, content and menu updates, a short monthly report, priority replies</li></ul><p class="best">Business apps with regular updates</p><a class="care-pick" href="#reply" data-care="plus">Add Care Plus to my order</a></article>
+     <article class="care-card reveal"><h4>Care Pro</h4><p class="price">£299<small> / month</small></p><ul class="ticks incl"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Everything in Care Plus, 10 hours a month for new features, usage analytics, same-day response on problems</li></ul><p class="best">Apps your customers rely on daily</p><a class="care-pick" href="#reply" data-care="pro">Add Care Pro to my order</a></article>
+    </div>
+  </div>
+  <ul class="terms"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>You own the code and the App Store listing from the day of final payment.</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Apple's own developer fee (£79 a year, paid to Apple) is the only cost not included.</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>If the scope changes mid-build, the price changes first, in writing, never on the invoice.</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Refunds, cancellations and the rest are in the <a href="terms/">terms</a>.</li></ul>
+ </div>
+</section>
+<section class="sec" id="apps" aria-labelledby="apps-h"><div class="wrap">
+ <header class="sec-head reveal">
+  <p class="eyebrow">App development</p>
+  <h2 id="apps-h" class="h2">Apps for the kind of business you actually run.</h2>
+  <p class="sub">Native iPhone, iPad and Android apps, taken all the way from idea to the App Store and Google Play.</p>
+ </header>
+ <ul class="ticks-row">
+  <li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Swift and SwiftUI for iOS, Kotlin and Compose for Android</li>
+  <li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>App Store review, release pipeline and listings handled for you</li>
+  <li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Updates, bug fixes and store screenshots after launch</li>
+ </ul>
+ <h3 class="h3-group reveal" id="demo-h">Try it: what your customers would tap.</h3>
+ <p class="sub reveal">Bookings, online orders and invoices, working the way they would in your own app. Tap through them.</p>
+ <div class="demo reveal" data-demo role="region" aria-labelledby="demo-h">
+  <div class="demo-copy">
+   <div class="demo-seg" role="group" aria-label="Choose a demo" hidden>
+    <button type="button" data-flow="book" aria-pressed="true">Bookings</button>
+    <button type="button" data-flow="sell" aria-pressed="false">Selling</button>
+    <button type="button" data-flow="pay" aria-pressed="false">Payments</button>
+   </div>
+   <h4 class="demo-title" data-demo-title>Bookings with a deposit</h4>
+   <p class="demo-text" data-demo-text>Customers pick a service and a free time, pay a small deposit and get a reminder the day before. Fewer no-shows, no phone tag.</p>
+   <ol class="demo-steps" data-demo-steps aria-label="Steps" hidden></ol>
+   <p class="demo-note"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg>Demo only: nothing is booked or charged.</p>
+   <p class="vh" aria-live="polite" data-demo-live></p>
+  </div>
+  <div class="demo-phone"><div class="demo-screen" data-demo-screen><img src="assets/img/tpl-salon.webp" width="480" height="1043" alt="Example salon booking app" loading="lazy"></div></div>
+ </div>
+</div></section>
+<section class="ai on-navy" id="ai" aria-labelledby="ai-h">
+ <div class="wrap">
+  <header class="sec-head reveal">
+   <p class="eyebrow">AI for business</p>
+   <h2 id="ai-h" class="h2">AI that does the boring parts of the job.</h2>
+   <p class="sub">Practical AI for small teams: the right tools, wired into how you already work, with your data kept where it belongs.</p>
+  </header>
+  <div class="offer-rail" role="region" aria-label="AI services" tabindex="0">
+  <ul class="offer">
+   <li><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg><h3>AI receptionist</h3><p>On WhatsApp, phone and web chat. It answers customers day and night, books appointments into your calendar and hands over to your mobile when a person is needed.</p></li>
+   <li><svg class="ic" aria-hidden="true"><use href="#i-doc"/></svg><h3>Chatbot trained on your documents</h3><p>Customers or staff ask, and it answers from your price lists, policies and manuals. When it does not know, it says so instead of guessing.</p></li>
+   <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><h3>AI agents that work on a schedule</h3><p>Sorting the inbox, drafting quotes, chasing follow-ups, writing weekly reports. They have hard limits and ask you before anything risky.</p></li>
+   <li><svg class="ic" aria-hidden="true"><use href="#i-stack"/></svg><h3>Paperwork on autopilot</h3><p>Invoices, receipts and PDFs are read and typed into your spreadsheets or accounting software.</p></li>
+   <li><svg class="ic" aria-hidden="true"><use href="#i-wave"/></svg><h3>AI inside your apps</h3><p>Claude, Gemini and voice AI built into your apps and workflows. Your own tools get smarter without changing how you work.</p></li>
+   <li><svg class="ic" aria-hidden="true"><use href="#i-pulse"/></svg><h3>Watchdogs that tell you when something breaks</h3><p>You get a message on your phone when a site, booking system or order feed stops working.</p></li>
+  </ul>
+  </div>
+ <div class="agents reveal" id="agents">
+ <h3 class="h3-group">AI agents that do real work</h3>
+ <p class="sub">Small, narrow agents that handle one job each, with you in charge. Each one tells people it is an AI.</p>
+ <div class="agents-grid">
+  <article class="care-card agent-card">
+   <h4>Front-desk agent</h4>
+   <p class="agent-does">Answers customer chats on your website at any hour, with phone calls as a later stage. It books appointments, then emails you a summary of every conversation.</p>
+   <div class="agent-eg"><p class="label">Example conversation</p>
+    <p class="agent-eg-note">Example only, not a real customer.</p>
+    <ol>
+     <li><b>Customer:</b> Do you have anything on Thursday afternoon?</li>
+     <li><b>Agent:</b> I'm an AI assistant for the salon. Thursday has 2:00 and 4:30 free. Which would you like?</li>
+     <li><b>Customer:</b> 4:30 please.</li>
+     <li><b>Agent:</b> Booked for 4:30 on Thursday. The owner will get a summary. Want me to pass you to a person instead? Just say so.</li>
+    </ol></div>
+   <dl class="agent-meta">
+    <div><dt>Connects to</dt><dd>Your website chat, your calendar, your email. Phone calls are a later stage and are agreed separately.</dd></div>
+    <div><dt>What a person still does</dt><dd>You take over whenever the customer asks, and you handle anything unusual, any complaint and any refund.</dd></div>
+    <div><dt>What we don't claim</dt><dd>It does not know your business beyond what you give it, it can mishear or misunderstand, and I do not promise it will answer every question.</dd></div>
+   </dl>
+   <p class="best">Price: ask for a quote</p>
+   <a class="care-pick" href="#reply" data-pick="ai">Ask for a quote</a>
+  </article>
+  <article class="care-card agent-card">
+   <h4>Booking agent</h4>
+   <p class="agent-does">Makes, moves and cancels bookings against your business calendar, and sends reminders before each appointment.</p>
+   <div class="agent-eg"><p class="label">Example conversation</p>
+    <p class="agent-eg-note">Example only, not a real customer.</p>
+    <ol>
+     <li><b>Customer:</b> Can I move my appointment to next week?</li>
+     <li><b>Agent:</b> I'm an AI assistant. Your booking is on Tuesday at 10:00. Next week I can offer Monday at 11:00 or Wednesday at 3:00.</li>
+     <li><b>Customer:</b> Wednesday.</li>
+     <li><b>Agent:</b> Done. Your reminder will go out the day before.</li>
+    </ol></div>
+   <dl class="agent-meta">
+    <div><dt>Connects to</dt><dd>Your business calendar, your website chat or WhatsApp (business use only) and your email.</dd></div>
+    <div><dt>What a person still does</dt><dd>You set the opening hours and the rules, and you deal with any clash the agent cannot resolve.</dd></div>
+    <div><dt>What we don't claim</dt><dd>It cannot see anything outside the calendar you connect, and it does not guarantee that nobody will miss an appointment.</dd></div>
+   </dl>
+   <p class="best">Price: ask for a quote</p>
+   <a class="care-pick" href="#reply" data-pick="ai">Ask for a quote</a>
+  </article>
+  <article class="care-card agent-card">
+   <h4>Lead qualifier</h4>
+   <p class="agent-does">Asks visitors the right questions on your website or on WhatsApp (business use only), then emails you a ranked list of the enquiries worth calling first.</p>
+   <div class="agent-eg"><p class="label">Example conversation</p>
+    <p class="agent-eg-note">Example only, not a real customer.</p>
+    <ol>
+     <li><b>Visitor:</b> I need my kitchen redone.</li>
+     <li><b>Agent:</b> I'm an AI assistant for the firm. Roughly when would you like to start, and which area are you in?</li>
+     <li><b>Visitor:</b> In the spring, near the city centre.</li>
+     <li><b>Agent:</b> Thanks. I will pass this on and someone will reply by email.</li>
+    </ol></div>
+   <dl class="agent-meta">
+    <div><dt>Connects to</dt><dd>Your website chat or WhatsApp (business use only), and your email.</dd></div>
+    <div><dt>What a person still does</dt><dd>You read the ranked list, decide who to contact and make every quote.</dd></div>
+    <div><dt>What we don't claim</dt><dd>The ranking is a guide, not a prediction, and it can get a lead wrong.</dd></div>
+   </dl>
+   <p class="best">Price: ask for a quote</p>
+   <a class="care-pick" href="#reply" data-pick="ai">Ask for a quote</a>
+  </article>
+  <article class="care-card agent-card">
+   <h4>Quote chaser</h4>
+   <p class="agent-does">Sends polite follow-ups when a quote has gone unanswered. You approve every message before it goes out.</p>
+   <div class="agent-eg"><p class="label">Example conversation</p>
+    <p class="agent-eg-note">Example only, not a real customer.</p>
+    <ol>
+     <li><b>Agent draft:</b> Hello, I'm an AI assistant writing for the firm. Just checking you received the quote sent last week. Any questions?</li>
+     <li><b>Owner:</b> Approved.</li>
+     <li><b>Agent:</b> Sent. I will note the reply when it arrives.</li>
+    </ol></div>
+   <dl class="agent-meta">
+    <div><dt>Connects to</dt><dd>Your email and your list of open quotes.</dd></div>
+    <div><dt>What a person still does</dt><dd>You approve each message and you take over once the customer replies.</dd></div>
+    <div><dt>What we don't claim</dt><dd>It cannot make a customer say yes, and it never sends anything you have not approved.</dd></div>
+   </dl>
+   <p class="best">Price: ask for a quote</p>
+   <a class="care-pick" href="#reply" data-pick="ai">Ask for a quote</a>
+  </article>
+  <article class="care-card agent-card">
+   <h4>Payment and review nudger</h4>
+   <p class="agent-does">Drafts reminders for unpaid invoices and requests for reviews after a job. You approve each one.</p>
+   <div class="agent-eg"><p class="label">Example conversation</p>
+    <p class="agent-eg-note">Example only, not a real customer.</p>
+    <ol>
+     <li><b>Agent draft:</b> Hello, I'm an AI assistant writing for the firm. Invoice 1042 is still open. Would you like the payment details again?</li>
+     <li><b>Owner:</b> Approved.</li>
+     <li><b>Agent:</b> Sent. I will tell you if there is a reply.</li>
+    </ol></div>
+   <dl class="agent-meta">
+    <div><dt>Connects to</dt><dd>Your email and your invoice list. Customers pay through your own accounts.</dd></div>
+    <div><dt>What a person still does</dt><dd>You approve every reminder and review request and you handle any dispute.</dd></div>
+    <div><dt>What we don't claim</dt><dd>It does not chase anyone on its own, and it cannot guarantee that an invoice is paid or a review is left.</dd></div>
+   </dl>
+   <p class="best">Price: ask for a quote</p>
+   <a class="care-pick" href="#reply" data-pick="ai">Ask for a quote</a>
+  </article>
+  <article class="care-card agent-card">
+   <h4>Private knowledge assistant</h4>
+   <p class="agent-does">Answers staff questions from the firm's own documents, running on a computer in your own office. See <a href="#private">private local AI</a>.</p>
+   <div class="agent-eg"><p class="label">Example conversation</p>
+    <p class="agent-eg-note">Example only, not a real customer.</p>
+    <ol>
+     <li><b>Staff member:</b> What is our policy on returns?</li>
+     <li><b>Assistant:</b> I'm an AI assistant. According to the returns policy document, items can be returned within the period stated there. I can open that section for you.</li>
+     <li><b>Staff member:</b> Please do.</li>
+     <li><b>Assistant:</b> Here it is. If the document does not cover your case, ask a colleague.</li>
+    </ol></div>
+   <dl class="agent-meta">
+    <div><dt>Connects to</dt><dd>The documents you choose, on your own computer. It can work with the internet switched off.</dd></div>
+    <div><dt>What a person still does</dt><dd>Your staff check anything important against the source document and make the final decision.</dd></div>
+    <div><dt>What we don't claim</dt><dd>It answers only from the documents you give it, it can still get things wrong, and it says so when it does not know.</dd></div>
+   </dl>
+   <p class="best">Price: ask for a quote</p>
+   <a class="care-pick" href="#reply" data-pick="ai">Ask for a quote</a>
+  </article>
+ </div>
+</div>
+ <p class="ai-close reveal">Tell me how your business runs and I will find where AI would save you time, and where it would not. Training for your team can be part of the quote, and the quote is fixed before any work starts.</p>
+  <div class="pills"><a class="pill" href="#reply" data-pick="ai">Get a fixed AI quote</a><a class="pill pill-ghost" href="#private">Keep data in your building</a></div>
+ </div>
+</section>
+<section class="sec" id="private" aria-labelledby="private-h">
+ <div class="wrap private-in">
+  <div class="reveal">
+   <p class="eyebrow">Private local AI</p>
+   <h2 id="private-h" class="h2">AI that never leaves the building.</h2>
+   <p class="sub">Private, on-premises AI when data cannot leave the building.</p>
+   <p class="lead-p">The AI model runs on a computer in your office. It can work with the internet switched off, so client files, health records or financial data never go to an outside company. It is a good fit for clinics, solicitors, accountants and anyone with confidential data.</p>
+   <ul class="points">
+    <li><svg class="ic" aria-hidden="true"><use href="#i-wifi-off"/></svg><div><b>Works offline</b><span>No internet connection needed to use it.</span></div></li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-building"/></svg><div><b>Data stays in the building</b><span>Your files are not sent to anyone else.</span></div></li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-chip"/></svg><div><b>Your hardware, your model</b><span>It runs on a computer you own.</span></div></li>
+    <li><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg><div><b>Total control</b><span>You decide who uses it and what it can see. Switch it off any time.</span></div></li>
+   </ul>
+  </div>
+  <div class="panel reveal" role="img" aria-label="Illustration of a typical private AI set-up">
+   <p class="panel-h">A typical private set-up</p>
+   <dl>
+    <div><dt>Internet access</dt><dd><span class="on-off">Off <span class="switch" aria-hidden="true"></span></span></dd></div>
+    <div><dt>Data stored</dt><dd>In your building</dd></div>
+    <div><dt>AI model</dt><dd>Open model on your own computer</dd></div>
+    <div><dt>Access</dt><dd>Your team only</dd></div>
+   </dl>
+   <p class="panel-note">An illustration. Your set-up is planned around your data and budget.</p>
+  </div>
+ </div>
+</section>
+<section class="sec sec-tile" id="websites" aria-labelledby="websites-h"><div class="wrap">
+ <header class="sec-head reveal">
+  <p class="eyebrow">Websites</p>
+  <h2 id="websites-h" class="h2">A small-business website that takes bookings and payments.</h2>
+  <p class="sub">Fast, simple websites for small businesses, built by one person and written in plain English.</p>
+ </header>
+ <ul class="ticks-row">
+  <li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Online bookings that go straight into your calendar</li>
+  <li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Card payments and mobile wallets through your own Stripe account, so the money never passes through Cambyte</li>
+  <li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>An optional AI receptionist that chats with visitors and always says it is an AI</li>
+ </ul>
+ <p class="lead-p reveal">Your website is yours. You can see every payment in your own Stripe account, and a person is always one click away from the assistant.</p>
+ <p class="addon-note">Price: ask for a quote. Every website is priced per project. <a href="#care">Care plans</a> are available if you want someone to look after the site afterwards.</p>
+ <div class="pills"><a class="pill" href="demo/salon/">See a demo website (a made-up salon)</a><a class="pill pill-ghost" href="mailto:hello@cambyte.co.uk?subject=Website%20quote%20request">Ask for a quote</a></div>
+ <p class="addon-note web-note">The demo is a made-up business. Nothing in it is real, and no payment is taken.</p>
+</div></section>
+<section class="proof reveal" id="proof" aria-labelledby="proof-h">
+ <p class="eyebrow">Draw &amp; Learn to Talk with Bob</p>
+ <h2 id="proof-h" class="h2">Shipped, public, and yours to try.</h2>
+ <p class="sub">Everything here is live. Download it, play it, check it.</p>
+ <div class="dl">
+  <p class="dl-meta">Live on the App Store · iPhone &amp; iPad · Education · Ages 5 and under · Free 7-day trial · No ads · No sign-up · Works offline</p>
+  <p class="pull">Download what I built. The first week is free.</p>
+  <div class="dl-body"><p>Most developers show you screenshots. I would rather you put a finished app on your own phone and judge for yourself.</p><p>A children's drawing app: kids trace, colour and learn first words, letters and numbers while Bob the robot says every word out loud in 19 languages. I designed it, built it, took it through Apple's strict Kids-category review and published it. It has had four releases, the latest adding a free trial and in-app subscriptions. Everything you see in it, I can do for your business.</p></div>
+ </div>
+ <div class="specs"><div><b>500+</b><span>pictures</span></div><div><b>19</b><span>languages</span></div><div><b>4</b><span>releases</span></div><div><b>0</b><span>ads or tracking</span></div><div><b>Android</b><span>version in testing</span></div></div>
+ <div class="store">
+  <a class="qr" href="https://apps.apple.com/app/id6777554616?ct=cambyte" rel="noopener"><img src="assets/img/dl-qr.svg" width="96" height="96" alt="QR code linking to Draw &amp; Learn on the App Store"></a>
+  <a href="https://apps.apple.com/app/id6777554616?ct=cambyte" rel="noopener"><img class="store-badge" src="assets/img/app-store-badge.svg" width="150" height="50" alt="Download on the App Store"></a>
+  <p>Scan with your phone, or tap on iPhone.</p>
+ </div>
+ <div class="more"><a href="https://drawandlearn.app" rel="noopener">Project website</a><a href="https://www.tiktok.com/@drawandlearnbob" rel="noopener">TikTok</a><a href="https://www.youtube.com/@DrawLearnwithBob" rel="noopener">YouTube</a></div>
+ <div class="built" id="built">
+  <h3>Also built here first</h3>
+  <ul>
+   <li><span class="status">In development</span><p><b>AI Secretary</b>, a WhatsApp AI receptionist. A test version answered WhatsApp messages end to end in October 2026.</p></li>
+   <li><span class="status live">Live</span><p><b>Marketing automation</b>: weekday outreach emails with safety checks and an hourly App Store ad optimiser with hard spending limits.</p></li>
+   <li><span class="status">Built</span><p><b>Local AI across two computers</b>: a gaming PC and a Mac mini, linked by Thunderbolt, ran a large open model with no cloud service.</p></li>
+  </ul>
+ </div>
+</section>
+<section class="sec" id="how" aria-labelledby="how-h"><div class="wrap">
+ <header class="sec-head reveal"><p class="eyebrow">How it works</p><h2 id="how-h" class="h2">No jargon. No surprises on the invoice.</h2></header>
+ <ol class="steps" tabindex="0" role="region" aria-labelledby="how-h">
+  <li class="reveal"><h3>Ask, then email</h3><p>My AI assistant on this page answers questions about apps, prices and ordering at any hour. When you are ready, email me about the business and I ask the awkward questions. If a call would help, I arrange one by phone or video, from any country. No obligation.</p></li>
+  <li class="reveal"><h3>Written plan</h3><p>Within two days you get a one-page plan: what the app does, screen by screen, the price and the date. Starter and Business keep their website price; Custom gets a fixed quote. Agree it and we start within a week (buying as a private person: after your 14-day cancellation period, unless you ask to start sooner).</p></li>
+  <li class="reveal"><h3>Build, with you watching</h3><p>A test version on your own phone within the first week, then updates every few days. You see it grow and steer it.</p></li>
+  <li class="reveal"><h3>Launch and handover</h3><p>I submit to Apple and deal with their review, which usually takes one to three days (the launch date is Apple's call). Then you get the code, the accounts and a plain-English guide. After that, care plan or goodbye, your call.</p></li>
+ </ol>
+</div></section>
+<section class="sec sec-tile" id="questions" aria-labelledby="faq-h"><div class="wrap narrow">
+ <header class="sec-head reveal"><p class="eyebrow">Questions</p><h2 id="faq-h" class="h2">Things people ask before they email.</h2></header>
+ <div class="faq">
+  <details><summary>How does paying online work?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>For a Starter or Business app, choose your extras in the order form under the prices and pay the 50% deposit on Stripe's secure checkout. I then email you, usually the same working day, to book a kickoff call and agree the written plan. Buying as a private person, the work waits until your 14-day cancellation period ends, unless you tick the box to start sooner. The other 50% is invoiced when Apple approves your app, and a care plan, if you chose one, starts the month after launch. If what you need turns out bigger than the package, I tell you in writing before doing any extra work, and if you would rather not go ahead you get the whole deposit back. The details are in the <a href="terms/">terms</a>.</p></details>
+  <details><summary>Who owns the app and the code?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>You do, fully, once the final payment clears. Source code, design files, the App Store listing and any accounts are handed over in your name. If you ever want another developer to take it on, they can.</p></details>
+  <details><summary>Do I need an Apple developer account?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes. Apple requires apps to be published under the account of the business that owns them, so I set one up with you on day one. It costs £79 a year, paid to Apple. Approval from Apple can take a few days for a sole trader and up to two weeks for a limited company, so we start that first while I build. Apple's review then usually takes one to three days. I handle it, but I never promise a public launch date, because that last step belongs to Apple.</p></details>
+  <details><summary>What about Android?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Every app can have an Android version, built natively in Kotlin, for 40% on top of the iPhone price. Many small businesses start with iPhone and add Android once the app is earning its keep. If most of your customers use Android, say so when you email and we plan for both from the start.</p></details>
+  <details><summary>What if I want changes after launch?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Without a care plan, email me and you get a quote, usually in hours at £45 an hour. On a care plan you have a bank of hours each month and just ask. Either way, nothing is done without you agreeing it first.</p></details>
+  <details><summary>Do you take projects from outside the UK?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>Yes, from any country. Everything is done by email, test builds on your own phone and, when needed, a video call, so location does not matter. I work in English or Portuguese and arrange any call at a time that suits your time zone. Businesses near Cambridge can also meet for coffee.</p></details>
+  <details><summary>How much does AI work cost?<svg class="ic" aria-hidden="true"><use href="#i-plus"/></svg></summary><p>There is no price list, because every business is different. Email me how your business runs and you get a fixed written quote, and nothing starts until you agree it.</p></details>
+ </div>
+</div></section>
+<section class="sec" id="about" aria-labelledby="about-h"><div class="wrap about">
+ <img src="assets/img/roberto.jpg" width="640" height="800" alt="Roberto Pires Almeida" loading="lazy">
+ <div class="about-text reveal"><p class="eyebrow">About</p><h2 id="about-h" class="h2">Hi, I'm Roberto.</h2>
+  <p>I run Cambyte from Cambridge, UK, and take on projects from any country. I'm an independent developer with an app on the App Store, a Computer Science student at the University of London, and someone who has spent over ten years in public-sector roles explaining complicated things to people who just needed them sorted. That is the job here too: understand the problem, build it properly, explain it clearly.</p>
+  <p>I use AI tools every day to build and ship software faster, and I run my own local AI hardware, so when I recommend something it is because I have used it, not because it is fashionable.</p>
+  <ul class="ticks"><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>BSc Computer Science, University of London (Goldsmiths), second year, working towards the Machine Learning &amp; AI specialism</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Google Cybersecurity Professional Certificate</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Swift, Kotlin, Python, JavaScript, SQL; macOS, Windows and Linux</li><li><svg class="ic" aria-hidden="true"><use href="#i-tick"/></svg>Based in Cambridge, UK, working with clients worldwide, in English or Portuguese</li></ul>
+ </div>
+</div></section>
+<section class="contact on-navy" id="contact" aria-labelledby="contact-h"><div class="wrap contact-in">
+ <div class="contact-head reveal">
+  <p class="eyebrow">Contact</p>
+  <h2 id="contact-h" class="h2">Tell me what needs sorting.</h2>
+  <p class="sub">Quick question? <a href="#contact" data-ask-assistant>Ask my AI assistant</a>, at any hour. For your project, one email is enough: you get a reply from me, usually the same day, and if a call is needed I arrange one.</p>
+  <a class="email" href="mailto:hello@cambyte.co.uk?subject=Hello%20Cambyte">hello@cambyte.co.uk</a>
+  <div class="more"><a href="https://apps.apple.com/app/id6777554616?ct=cambyte" rel="noopener">Try Draw &amp; Learn</a><a href="https://www.linkedin.com/in/roberto-pires-03986415a/" rel="noopener">LinkedIn</a><a href="https://github.com/synckser" rel="noopener">GitHub</a><a href="assets/Roberto-Pires-Almeida-CV.pdf">CV (PDF)</a></div>
+ </div>
+ <p class="sig">Roberto Pires Almeida · Cambyte · Cambridge, UK</p>
+</div></section>
+</main>
+<footer class="foot">
+  <div class="wrap">
+    <nav class="foot-dir" aria-label="Site">
+      <div><h2>Services</h2><ul><li><a href="#apps">App development</a></li><li><a href="#prices">App prices</a></li><li><a href="#care">Care plans</a></li><li><a href="#ai">AI for business</a></li><li><a href="#agents">AI agents</a></li><li><a href="#websites">Websites</a></li><li><a href="#private">Private local AI</a></li></ul></div>
+      <div><h2>Work</h2><ul><li><a href="#proof">Draw &amp; Learn</a></li><li><a href="#built">Built in-house</a></li><li><a href="https://synckser.github.io/game-final/" rel="noopener">2D platform game</a></li><li><a href="https://synckser.github.io/data-vis/" rel="noopener">Data visualisations</a></li></ul></div>
+      <div><h2>Cambyte</h2><ul><li><a href="#how">How it works</a></li><li><a href="#questions">Questions</a></li><li><a href="#about">About Roberto</a></li></ul></div>
+      <div><h2>Contact</h2><ul><li><a href="mailto:hello@cambyte.co.uk">hello@cambyte.co.uk</a></li><li><a href="https://www.linkedin.com/in/roberto-pires-03986415a/" rel="noopener">LinkedIn</a></li><li><a href="https://github.com/synckser" rel="noopener">GitHub</a></li><li><a href="assets/Roberto-Pires-Almeida-CV.pdf">CV</a></li></ul></div>
+    </nav>
+    <div class="foot-legal">
+      <p>© 2026 Cambyte · Roberto Pires Almeida · Cambridge, UK</p>
+      <ul><li><a href="privacy/">Privacy</a></li><li><a href="terms/">Terms</a></li></ul>
+    </div>
+  </div>
+</footer>
+<script src="assets/pricing.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/guards.js" defer></script>
+<script src="assets/assistant.js" defer></script>
+</body>
+</html>
