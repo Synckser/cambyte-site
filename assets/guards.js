@@ -300,10 +300,31 @@
     return out;
   }
 
-  // The name a price belongs to: the closest one, but "\u00a3750 on Starter" binds to the name after it,
-  // and a care plan or the hourly rate counts only when no other price sits between it and the amount.
+  // Clause breaks inside a sentence: a comma or semicolon before a space (never the one in "1,500"),
+  // a dash between spaces, or and / while / whereas / but / or / plus / then.
+  var RE_CLAUSE = /[,;](?=\s)|\s[-\u2013\u2014]\s|\s(?:and|while|whereas|but|or|plus|then)\s/gi;
+
+  // [from, to] of the clause that holds the amount, as positions in the whole text.
+  function clauseOf(sent, h) {
+    var a = sent.from, b = sent.from + sent.text.length, e = h.end, m, at;
+    // A hit can end with the space after the number.
+    while (e > h.at && /\s/.test(sent.text.charAt(e - 1 - sent.from))) e--;
+    RE_CLAUSE.lastIndex = 0;
+    while ((m = RE_CLAUSE.exec(sent.text))) {
+      at = sent.from + m.index;
+      if (at + m[0].length <= h.at) a = at + m[0].length;
+      else if (at >= e) { b = at; break; }
+    }
+    return [a, b];
+  }
+
+  // The name a price belongs to: one in the same clause when there is one ("Starter is \u00a31,500, while
+  // Business is \u00a33,500"), else any in the sentence. Then the closest, but "\u00a3750 on Starter" binds to the
+  // name after it, and a care plan or the hourly rate counts only when no other price sits between it and the amount.
   function tierNear(sent, h, hits) {
-    var names = tierNames(sent), best = null, i, j, d, nm, tail, blocked, lo, hi;
+    var names = tierNames(sent), best = null, i, j, d, nm, tail, blocked, lo, hi, cl = clauseOf(sent, h), same = [];
+    for (i = 0; i < names.length; i++) if (names[i].pos >= cl[0] && names[i].end <= cl[1]) same.push(names[i]);
+    if (same.length) names = same;
     for (i = 0; i < names.length; i++) {
       nm = names[i];
       if (nm.pos < h.at) {
